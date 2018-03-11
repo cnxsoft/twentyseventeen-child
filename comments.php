@@ -80,6 +80,6 @@ if ( post_password_required() ) {
 	comment_form();
 	?>
 	<!-- JLA - Ad after comments -->
-	<?php echo adrotate_ad(1) ?>
+	<?php echo adrotate_group(2) ?>
 
 </div><!-- #comments -->

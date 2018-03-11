@@ -26,7 +26,7 @@
 
         <!-- JLA  -->
         <div class="fixed"></div>
-        <?php echo adrotate_ad(1); ?>
+        <?php echo adrotate_group(1); ?>
 
 
 	<div class="panel-content">

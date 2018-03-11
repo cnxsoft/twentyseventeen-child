@@ -59,7 +59,7 @@
 
 		if ( is_single() ) {
 		/* JLA */
-	        echo adrotate_ad(1);
+	        echo adrotate_group(1);
 
 		/* translators: %s: Name of current post */
 		the_content( sprintf(
@@ -90,7 +90,7 @@
                 <table>
                 <tr>
                         <td width=338>
-		        <?php echo adrotate_ad(2); ?>
+		        <?php echo adrotate_group(4); ?>
                         </td>
                         <td valign="top">
                         <?php

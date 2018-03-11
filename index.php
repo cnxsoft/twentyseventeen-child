@@ -32,7 +32,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<!-- JLA - Top 728x90 ad  -->
-		<?php echo adrotate_ad(1); ?>
+		<?php echo adrotate_group(1); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
@@ -50,16 +50,16 @@ get_header(); ?>
 			                /* JLA 2nd and 6th position ads */
 			                STATIC $countpost = 0; /* JLA */
 			                switch ($countpost){
-			                        case 1: echo adrotate_ad(2);
+			                        case 1: echo adrotate_group(8);
 			                        break;
-                       				case 5: echo adrotate_ad(2);
+                       				case 5: echo adrotate_group(9);
                          			break;
 			                        default:
 			                }
 			                $countpost++;
 				endwhile;
 				/* JLA - Bottom 728x90 ad */
-				echo adrotate_ad(1); 
+				echo adrotate_group(2); 
 
 				the_posts_pagination( array(
 					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
