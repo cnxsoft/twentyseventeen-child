@@ -1,0 +1,110 @@
+/*
+Theme Name: Twenty Seventeen Child
+Theme URI: https://www.cnx-software.com/themes/twentyseventeen-child/
+Description: Twenty Seventeen Child Theme
+Author: CNXSoft
+Author URI: https://www.cnx-software.com
+Template: twentyseventeen
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+Text Domain: twentyseventeen-child
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*Computer screen */
+@media screen and (min-width: 48em) {
+	.twentyseventeen-front-page.has-header-image .custom-header-image {
+	/*height: 1200px;*/
+	/*height: 100vh;*/
+	height: 50vh;
+	/*max-height: 100%;*/
+	/*overflow: hidden;*/
+	}
+	.wrap {
+		max-width: 80%;
+		/* padding-left: 3em; */
+		/* padding-right: 3em; */
+	}
+
+}
+
+/* Mobile screen*/
+.has-header-image.twentyseventeen-front-page .custom-header {
+	/*display: table;*/
+	/*height: 300px;*/
+	/*height: 75vh;*/
+	height: 50vh;
+	/*width: 100%;*/
+}
+
+/* Computer screen with logged in user and admin bar showing on front end*/
+@media screen and (min-width: 48em) {
+	.admin-bar.twentyseventeen-front-page.has-header-image .custom-header-image {
+	/*height: calc(100vh - 32px);*/
+	height: calc(50vh - 32px);
+	}
+}
+
+@media screen and (min-width: 30em) {
+	.page-one-column .panel-content .wrap
+	{
+		max-width: 80%;
+	}
+}
+.page.page-one-column:not(.twentyseventeen-front-page) #primary {
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	max-width: 80%;
+}
+
+/* Align iFrame and Default Youtube Videos */
+.youtube-player { display: block; margin: 0 auto; }
+
+.has-sidebar #secondary {
+    width: 26% !important;
+	  font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1em;
+}
+
+/* Margin header / content */
+.site-content {
+    padding: 1.5em 0 0;
+	}
+
+/* Main zone width */
+	.has-sidebar:not(.error404) #primary {
+    float: left;
+    width: 70%;
+}
+
+/*Top banner height */
+.site-branding {
+    padding: 1.5em 0;
+}
+
+/* Lists margins & padding */
+ul, ol {
+    margin: 0em 2.0em;
+	
+	  padding: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 1.5em;
+    padding-left: 0px;
+}
+ul ul, ol ol, ul ul ul, ol ol ol {
+	padding-bottom: 0em;
+}
+/* Padding bottom between posts or excerpts */
+.blog .site-main > article, .archive .site-main > article, .search .site-main > article {
+    padding-bottom: 1em;
+}
+
+/* Word link */
+.site-info { display: none; }
+
