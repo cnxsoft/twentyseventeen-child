@@ -29,7 +29,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 		/* padding-left: 3em; */
 		/* padding-right: 3em; */
 	}
-
+	.post-thumbnail {
+	    margin-bottom: 1em;
+	    width: 300px;
+	    float: left;
+	}
 }
 
 /* Mobile screen*/
