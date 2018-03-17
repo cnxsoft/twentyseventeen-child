@@ -49,9 +49,11 @@
 		</div><!-- .post-thumbnail -->
 	<?php else :
 		 if (! is_single() ) { ?>
+		<div class="post-thumbnail">	
                         <a href="<?php the_permalink(); ?>">
                        <img alt="" align="left" width=300 height=250 margin=10px src="<?php echo catch_that_image(); ?>"></a>
-                        <?php
+		</div><!-- .post-thumbnail -->
+                <?php
                 }
 	endif; ?>
 

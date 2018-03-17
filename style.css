@@ -107,6 +107,7 @@ ul ul, ol ol, ul ul ul, ol ol ol {
 /* featured thumnail image, left align, 300px width */
 .post-thumbnail {
     margin-bottom: 1em;
+    margin-right: 1em;
     width: 300px;
     float: left;
 }
