@@ -89,12 +89,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* Lists margins & padding */
 ul, ol {
     margin: 0em 2.0em;
-	
-	  padding: 0;
+    padding: 0;
     padding-top: 0px;
     padding-right: 0px;
     padding-bottom: 1.5em;
     padding-left: 0px;
+    line-height: 1.3em; /* For recent comments */
 }
 ul ul, ol ol, ul ul ul, ol ol ol {
 	padding-bottom: 0em;
@@ -110,6 +110,11 @@ ul ul, ol ol, ul ul ul, ol ol ol {
     margin-right: 1em;
     width: 300px;
     float: left;
+}
+
+/* Reduce bottom padding for widget */
+.widget {
+    padding-bottom: 1em;
 }
 
 /* Word link */
