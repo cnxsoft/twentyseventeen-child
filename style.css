@@ -52,7 +52,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @media screen and (min-width: 30em) {
 	.page-one-column .panel-content .wrap
 	{
-		max-width: 100%;
+		width: 100%;
+		max-width: 1366px;
 	}
 }
 .page.page-one-column:not(.twentyseventeen-front-page) #primary {
