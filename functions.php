@@ -30,4 +30,15 @@ function catch_that_image() {
   }
   return $first_img;
 }
+
+add_filter('document_title_parts', 'dq_override_post_title', 10);
+function dq_override_post_title($title){
+   // change title for singular blog post
+    if( is_singular( 'post' ) ){
+        $title['site'] = ''; //optional
+    } else {
+        $title['tagline'] = '';
+    }
+    return $title;
+}
 ?>
