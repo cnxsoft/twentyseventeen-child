@@ -63,4 +63,10 @@ function no_follow_tag_cloud_links( $return ) {
 	$return = str_replace('<a', '<a rel="nofollow" ', $return );
 	return $return;
 }
+
+/* Add nofollow to link to comments */
+function add_nofollow_to_comments_popup_link () {
+	return 'rel="nofollow"';
+}
+add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 ?>
