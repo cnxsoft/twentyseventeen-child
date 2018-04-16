@@ -43,7 +43,7 @@ function dq_override_post_title($title){
 }
 
 /* Add nofollow to Continue reading link */
-function twentyseventeen_excerpt_more( $link ) {
+function twentyseventeen_excerpt_more_child( $link ) {
         if ( is_admin() ) {
                 return $link;
         }
@@ -51,9 +51,9 @@ function twentyseventeen_excerpt_more( $link ) {
         $link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link" rel="nofollow">%2$s</a></p>',
                 esc_url( get_permalink( get_the_ID() ) ),
                 /* translators: %s: Name of current post */
-                sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
+                sprintf( __( 'Continue reading...<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
         );
         return ' &hellip; ' . $link;
 }
-add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more' );
+add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more_child', 999);
 ?>
