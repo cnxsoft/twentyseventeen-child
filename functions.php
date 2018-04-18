@@ -69,4 +69,9 @@ function add_nofollow_to_comments_popup_link () {
 	return 'rel="nofollow"';
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
+
+/* Trim description for OG plugin */
+add_filter( 'og_og_description_value', function( $value ) {
+    return wp_trim_words( $value );
+});
 ?>
