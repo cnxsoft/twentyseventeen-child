@@ -70,6 +70,14 @@ function add_nofollow_to_comments_popup_link () {
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 
+/* Nofollow for all tags */
+add_filter('the_tags', 'wp32234_add_span_get_the_tag_list');
+
+function wp32234_add_span_get_the_tag_list($list) {
+    $list = str_replace('rel="tag">', 'rel="tag nofollow">', $list);
+    return $list;
+}
+
 /* Trim description for OG plugin */
 add_filter( 'og_og_description_value', function( $value ) {
     return wp_trim_words( $value );
