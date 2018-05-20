@@ -44,7 +44,7 @@
 <?php wp_footer(); ?>
 <div id="amzn-assoc-ad-593731f3-2419-45b0-9d08-5e745f36e047"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047"></script>
 
-/* GDPR compliance - Quantcast Choice */
+<!-- GDPR compliance - Quantcast Choice -->
 <!-- Quantcast Choice. Consent Manager Tag -->
   <script type="text/javascript" async=true>
     var __cmp = (function () {
