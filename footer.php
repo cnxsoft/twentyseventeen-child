@@ -43,6 +43,20 @@
 </div><!-- #page -->
 <?php wp_footer(); ?>
 <div id="amzn-assoc-ad-593731f3-2419-45b0-9d08-5e745f36e047"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047"></script>
+<!-- Viglink code !-->
+<script type="text/javascript">
+    var vglnk = { key: '6fb3a5065613e981f56f6ca8abc2f761' };
+
+    (function(d, t) {
+        var s = d.createElement(t);
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//cdn.viglink.com/api/vglnk.js';
+        var r = d.getElementsByTagName(t)[0];
+            r.parentNode.insertBefore(s, r);
+    }(document, 'script'));
+</script>
+<!-- end of Viglink code -->
 </body>
 </html>
 ~         
