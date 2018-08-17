@@ -82,4 +82,11 @@ function wp32234_add_span_get_the_tag_list($list) {
 add_filter( 'og_og_description_value', function( $value ) {
     return wp_trim_words( $value );
 });
+
+//Add Meta Referrer Tag in Header without Plugin
+function add_meta_tags() {
+?>
+    <meta name="referrer" content="always"/>
+<?php }
+add_action('wp_head', 'add_meta_tags');
 ?>
