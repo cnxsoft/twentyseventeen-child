@@ -20,15 +20,6 @@
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
-<!-- Google Ads Auto Ads -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-8120806476788575",
-          enable_page_level_ads: true
-     });
-</script>
-
 <?php wp_head(); ?>
 </head>
 
