@@ -35,6 +35,28 @@
 })();
 </script>
 <!-- End BuySellAds Ad Code -->
+
+<!-- PubGalaxy Code -->
+<script type="text/javascript" src="//dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom.min.js"></script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+googletag.cmd.push(function() {
+googletag.defineSlot('/8095840/.2_A.35154.5_cnx-software.com_tier1', [320, 50], 'div-gpt-ad-cnx-softwarecom35154').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35151.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35151').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35150.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35150').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35148.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35148').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35147.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35147').addService(googletag.pubads());
+googletag.enableServices();
+});
+</script>
+<!-- End PubGalaxy Code -->
+
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
 
