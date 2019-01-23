@@ -47,11 +47,15 @@ googletag.cmd = googletag.cmd || [];
 
 <script>
 googletag.cmd.push(function() {
-googletag.defineSlot('/8095840/.2_A.35154.5_cnx-software.com_tier1', [320, 50], 'div-gpt-ad-cnx-softwarecom35154').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35151.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35151').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35150.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35150').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35148.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35148').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35147.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35147').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35145.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35145').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35144').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35143.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35143').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35142.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35142').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35141.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35141').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35140.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35140').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35139.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35139').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35138.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35138').addService(googletag.pubads());
 googletag.enableServices();
 });
 </script>
