@@ -61,6 +61,15 @@ googletag.enableServices();
 </script>
 <!-- End PubGalaxy Code -->
 
+<!-- Adsense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3693704647095934",
+    enable_page_level_ads: true
+  });
+</script>
+
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
 
