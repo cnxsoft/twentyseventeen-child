@@ -38,30 +38,46 @@
 
 <!-- PubGalaxy Code -->
 <script type="text/javascript" src="//dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom.min.js"></script>
-
 <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
 <script>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
 </script>
-
 <script>
 googletag.cmd.push(function() {
-googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
+var slot35146 = googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35145.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35145').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35144').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35143.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35143').addService(googletag.pubads());
+var slot34144 = googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35144').addService(googletag.pubads());
+var slot35143 = googletag.defineSlot('/8095840/.2_A.35143.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35143').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35142.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35142').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35141.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35141').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35140.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35140').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35139.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35139').addService(googletag.pubads());
+var slot35139 = googletag.defineSlot('/8095840/.2_A.35139.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35139').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35138.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35138').addService(googletag.pubads());
-googletag.enableServices();
-});
+
+var refreshSlots = [slot35139, slot34144, slot35143, slot35146];
+    setInterval(function RefreshBids() {
+        console.log('Refresh Bids Initialized');
+        pbjs.que.push(function() {
+        pbjs.requestBids({ 
+            timeout: PREBID_TIMEOUT,
+            adUnitCodes: ['div-gpt-ad-cnx-softwarecom35146','div-gpt-ad-cnx-softwarecom35144','div-gpt-ad-cnx-softwarecom35143', 'div-gpt-ad-cnx-softwarecom35139'],
+            bidsBackHandler: function() {
+                console.log('RefreshBids.bidsBackHandler',refreshSlots);
+                pbjs.setTargetingForGPTAsync(['div-gpt-ad-cnx-softwarecom35146','div-gpt-ad-cnx-softwarecom35144','div-gpt-ad-cnx-softwarecom35143', 'div-gpt-ad-cnx-softwarecom35139']);
+                console.log('Refresh Ads');
+                googletag.pubads().refresh(refreshSlots);
+            }
+        });
+    });
+    }, 90000);
+ 
+    googletag.enableServices();
+  });
 </script>
 <!-- End PubGalaxy Code -->
 
-<!-- Adsense -->
+<!-- Adsense including Auto Ads -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
