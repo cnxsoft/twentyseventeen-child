@@ -24,18 +24,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<!-- BuySellAds Ad Code -->
-<script type="text/javascript">
-(function(){
-  var bsa = document.createElement('script');
-     bsa.type = 'text/javascript';
-     bsa.async = true;
-     bsa.src = '//s3.buysellads.com/ac/bsa.js';
-  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
-})();
-</script>
-<!-- End BuySellAds Ad Code -->
-
 <!-- PubGalaxy Code -->
 <script type="text/javascript" src="//dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom.min.js"></script>
 <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
@@ -54,6 +42,7 @@ googletag.defineSlot('/8095840/.2_A.35141.7_cnx-software.com_tier1', [300, 600],
 googletag.defineSlot('/8095840/.2_A.35140.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35140').addService(googletag.pubads());
 var slot35139 = googletag.defineSlot('/8095840/.2_A.35139.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35139').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35138.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35138').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.35196.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35196').addService(googletag.pubads());
 
 var refreshSlots = [slot35139, slot34144, slot35143, slot35146];
     setInterval(function RefreshBids() {
