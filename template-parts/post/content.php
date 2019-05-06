@@ -27,7 +27,7 @@
 					echo " - ";
                                         comments_popup_link();
 				} else {
-					echo twentyseventeen_time_link();
+					twentyseventeen_posted_on();
 					echo " - ";
                                         comments_popup_link();
 					twentyseventeen_edit_link();
