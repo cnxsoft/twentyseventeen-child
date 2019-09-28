@@ -21,7 +21,6 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <?php wp_head(); ?>
-<script src="//pubgalaxy-com.videoplayerhub.com/gallery.js" async></script>
 </head>
 
 <body <?php body_class(); ?>>
