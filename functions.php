@@ -78,6 +78,9 @@ function wp32234_add_span_get_the_tag_list($list) {
     return $list;
 }
 
+/* Disable BIG image scaling introduced in WP 5.3 */
+add_filter( 'big_image_size_threshold', '__return_false' );
+
 /* Trim description for OG plugin */
 add_filter( 'og_og_description_value', function( $value ) {
     return wp_trim_words( $value );
