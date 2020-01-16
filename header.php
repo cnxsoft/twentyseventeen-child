@@ -66,11 +66,8 @@ var refreshSlots = [slot35139, slot34144, slot35143, slot35146];
 </script>
 <!-- End PubGalaxy Code -->
 
-<!-- EZOIC -->
-<div id="ezoic-pub-ad-placeholder-100">
 <!-- Adsense including Auto Ads -->
 <!-- <script data-ad-client="ca-pub-3693704647095934" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-</div> 
 
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
