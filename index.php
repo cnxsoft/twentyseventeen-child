@@ -31,8 +31,6 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
-		<!-- JLA - Top 728x90 ad  -->
-		<?php echo adrotate_group(1); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
