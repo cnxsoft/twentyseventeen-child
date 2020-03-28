@@ -28,7 +28,7 @@
                                 ?>
                                 <p class="site-description"><?php echo $description; ?></p>
                         <?php endif; ?>
-                </div><!-- .site-branding-text -->a
+                </div><!-- .site-branding-text -->
                 <!-- JLA - PubGalaxy Top Banner -->
                 <?php echo adrotate_group(1); ?>
 
