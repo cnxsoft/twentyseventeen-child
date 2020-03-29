@@ -65,8 +65,6 @@
 		<?php
 
 		if ( is_single() ) {
-		/* JLA */
-	        echo adrotate_group(1);
 
 		/* translators: %s: Name of current post */
 		the_content( sprintf(
