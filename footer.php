@@ -41,6 +41,9 @@
                 </footer><!-- #colophon -->
         </div><!-- .site-content-contain -->
 </div><!-- #page -->
+<!-- OneTrust Cookies Settings button start -->
+<a id="ot-sdk-btn" class="ot-sdk-show-settings" style="padding: 0; border: none">Change Ad Consent</a>
+<!-- OneTrust Cookies Settings button end -->
 <?php wp_footer(); ?>
 <div id="amzn-assoc-ad-593731f3-2419-45b0-9d08-5e745f36e047"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047"></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/38249X983277.skimlinks.js"></script>
@@ -58,8 +61,3 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-cnx-softwarecom376
 
 </body>
 </html>
-~         
-
-
-
-
