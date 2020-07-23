@@ -46,8 +46,6 @@ googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250],
 googletag.defineSlot('/8095840/.2_A.35145.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35145').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35196.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35196').addService(googletag.pubads());
-<!-- video ad -->
-googletag.defineSlot('/8095840/.2_A.37641.46_cnx-software.com_tier1', [1, 1], 'div-gpt-ad-cnx-softwarecom37641').addService(googletag.pubads());
 googletag.enableServices();
 });
 </script>

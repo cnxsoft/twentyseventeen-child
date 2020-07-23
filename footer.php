@@ -51,15 +51,5 @@
 <script type="text/javascript" src="https://s.skimresources.com/js/38249X983277.skimlinks.js"></script>
 <!--Pubgalaxy InView-->
 <script src="https://dsh7ky7308k4b.cloudfront.net/autoads/cnx-softwarecom_inview.min.js"></script>
-
-<!-- Pubgalaxy video ad -->
-<!-- TAGNAME: Outstream_video -->
-<!-- /8095840/.2_A.37641.46_cnx-software.com_tier1 -->
-<div id='div-gpt-ad-cnx-softwarecom37641' style='height:1px; width:1px;'>
-<script>
-googletag.cmd.push(function() { googletag.display('div-gpt-ad-cnx-softwarecom37641'); });
-</script>
-</div>
-
 </body>
 </html>
