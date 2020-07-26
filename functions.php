@@ -81,6 +81,11 @@ function wp32234_add_span_get_the_tag_list($list) {
 /* Disable BIG image scaling introduced in WP 5.3 */
 add_filter( 'big_image_size_threshold', '__return_false' );
 
+
+/* Enable shortcodes in widgets */
+add_filter( 'widget_text', 'shortcode_unautop');
+add_filter( 'widget_text', 'do_shortcode', 11);
+
 /* Trim description for OG plugin */
 add_filter( 'og_og_description_value', function( $value ) {
     return wp_trim_words( $value );
