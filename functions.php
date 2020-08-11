@@ -112,7 +112,7 @@ function contactform_dequeue_scripts() {
 
     $load_scripts = false;
 
-    if( is_singular() ) {
+    if( is_page() ) {
     	$post = get_post();
 
     	if( has_shortcode($post->post_content, 'contact-form-7') ) {
