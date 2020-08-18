@@ -19,13 +19,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<!-- OneTrust Cookies Consent Notice start -->
-<script type="text/javascript" src="https://cdn.cookielaw.org/consent/a79db813-1273-4b19-a287-952dc3c4e392/OtAutoBlock.js"></script>
-<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="a79db813-1273-4b19-a287-952dc3c4e392"></script>
-<script type="text/javascript">
-function OptanonWrapper() { }
-</script>
-<!-- OneTrust Cookies Consent Notice end -->
 <?php wp_head(); ?>
 </head>
 
