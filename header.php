@@ -39,13 +39,11 @@ googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250],
 googletag.defineSlot('/8095840/.2_A.35145.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35145').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
 googletag.defineSlot('/8095840/.2_A.35196.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35196').addService(googletag.pubads());
+googletag.defineSlot('/8095840/.2_A.37829.46_cnx-software.com_tier1', ['fluid'], 'div-gpt-ad-1597905513858-0').addService(googletag.pubads());
 googletag.enableServices();
 });
 </script>
 <!-- End PubGalaxy Code -->
-
-<!-- Adsense including Auto Ads -->
-<script data-ad-client="ca-pub-3693704647095934" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
