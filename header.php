@@ -45,6 +45,9 @@ googletag.enableServices();
 </script>
 <!-- End PubGalaxy Code -->
 
+<!-- Adsense including Auto Ads -->
+<script data-ad-client="ca-pub-3693704647095934" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
 
