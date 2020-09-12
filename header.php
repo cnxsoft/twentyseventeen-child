@@ -19,6 +19,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<!-- PubGalaxy Adblock script -->
+<script src="//pubgalaxy-com.videoplayerhub.com/gallery.js" async></script>
 <?php wp_head(); ?>
 </head>
 
