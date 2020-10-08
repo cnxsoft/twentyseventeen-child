@@ -42,41 +42,11 @@ function dq_override_post_title($title){
     return $title;
 }
 
-/* Add nofollow to Continue reading link */
-function twentyseventeen_excerpt_more_child( $link ) {
-        if ( is_admin() ) {
-                return $link;
-        }
-
-        $link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link" rel="nofollow">%2$s</a></p>',
-                esc_url( get_permalink( get_the_ID() ) ),
-                /* translators: %s: Name of current post */
-                sprintf( __( 'Continue reading...<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
-        );
-        return ' &hellip; ' . $link;
-}
-add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more_child', 999);
-
-/* Add nofollow to tag cloud */
-add_filter( 'wp_tag_cloud', 'no_follow_tag_cloud_links' );
-function no_follow_tag_cloud_links( $return ) {
-	$return = str_replace('<a', '<a rel="nofollow" ', $return );
-	return $return;
-}
-
 /* Add nofollow to link to comments */
 function add_nofollow_to_comments_popup_link () {
 	return 'rel="nofollow"';
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
-
-/* Nofollow for all tags */
-add_filter('the_tags', 'wp32234_add_span_get_the_tag_list');
-
-function wp32234_add_span_get_the_tag_list($list) {
-    $list = str_replace('rel="tag">', 'rel="tag nofollow">', $list);
-    return $list;
-}
 
 /* Disable BIG image scaling introduced in WP 5.3 */
 add_filter( 'big_image_size_threshold', '__return_false' );
