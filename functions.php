@@ -41,6 +41,11 @@ function dq_override_post_title($title){
     }
     return $title;
 }
+/* Remove Continue reading link */
+function twentyseventeen_excerpt_more_child( $link ) {
+        return '';
+}
+add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more_child', 999);
 
 /* Add nofollow to link to comments */
 function add_nofollow_to_comments_popup_link () {
