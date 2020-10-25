@@ -25,26 +25,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-<!-- PubGalaxy Code -->
-<script type="text/javascript" src="//dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom.min.js"></script>
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-window.googletag = window.googletag || {cmd: []};
-googletag.cmd.push(function() {
-googletag.defineSlot('/8095840/.2_A.35138.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35138').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35139.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35139').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35140.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35140').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35141.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35141').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35142.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35142').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35143.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35143').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35144.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35144').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35145.7_cnx-software.com_tier1', [300, 600], 'div-gpt-ad-cnx-softwarecom35145').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35146.3_cnx-software.com_tier1', [728, 90], 'div-gpt-ad-cnx-softwarecom35146').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.35196.4_cnx-software.com_tier1', [300, 250], 'div-gpt-ad-cnx-softwarecom35196').addService(googletag.pubads());
-googletag.defineSlot('/8095840/.2_A.37829.46_cnx-software.com_tier1', ['fluid'], 'div-gpt-ad-1597905513858-0').addService(googletag.pubads());
-googletag.enableServices();
-});
-</script>
+<!-- JLA - PubGalaxy Code -->
+<?php echo adrotate_ad(104); ?>
 <!-- End PubGalaxy Code -->
 
 <div id="page" class="site">
