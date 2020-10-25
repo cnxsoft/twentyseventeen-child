@@ -19,16 +19,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<!-- PubGalaxy Adblock script -->
-<script src="//pubgalaxy-com.videoplayerhub.com/gallery.js" async></script>
+<!-- PubGalaxy Adblock script Top -->
+<?php echo adrotate_ad(104); ?>
+<!-- End PubGalaxy Code -->
 <?php wp_head(); ?>
+<!-- PubGalaxy Adblock script bottom -->
+<?php echo adrotate_ad(105); ?>
+<!-- End PubGalaxy Code -->
+
 </head>
 
 <body <?php body_class(); ?>>
-<!-- JLA - PubGalaxy Code -->
-<?php echo adrotate_ad(104); ?>
-<!-- End PubGalaxy Code -->
-
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
 
