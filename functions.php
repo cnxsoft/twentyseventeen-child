@@ -43,7 +43,7 @@ function dq_override_post_title($title){
 }
 /* Remove Continue reading link */
 function twentyseventeen_excerpt_more_child( $link ) {
-        return '';
+        return ' [...]';
 }
 add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more_child', 999);
 
