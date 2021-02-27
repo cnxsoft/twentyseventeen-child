@@ -19,13 +19,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<!-- PubGalaxy IAB TCF 2.0 script Top -->
+<script src="https://cmp.uniconsent.com/v2/stub.min.js"></script>
+<script async src='https://cmp.uniconsent.com/v2/de538b0a3a/cmp.js'></script>
+<script type="text/javascript">
+window.googletag = window.googletag || {};
+window.googletag.cmd = window.googletag.cmd || [];
+window.googletag.cmd.push(function () {
+    window.googletag.pubads().enableAsyncRendering();
+    window.googletag.pubads().disableInitialLoad();
+});
+(adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
+</script>
+<script>
+__tcfapi("addEventListener", 2, function(tcData, success) {
+    if (success && tcData.unicLoad  === true) {
+        if(!window._initAds) {
+            window._initAds = true;
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom_new.min.js';
+            document.head.appendChild(script);
+
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
+            document.head.appendChild(script);
+	    
+	    var script = document.createElement('script');
+            script.async = true;
+	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
+            script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+            document.head.appendChild(script);
+
+	    var script = document.createElement('script');
+            script.async = true;
+            script.src = '//pubgalaxy-com.videoplayerhub.com/gallery.js';
+            document.head.appendChild(script);
+
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://s.skimresources.com/js/38249X983277.skimlinks.js';
+            document.head.appendChild(script);
+        }
+    }
+});
+</script>
+<!-- PubGalaxy IAB TCF 2.0 script top end -->
 <?php wp_head(); ?>
-<!-- PubGalaxy Adblock script Top -->
-<?php echo adrotate_ad(104); ?>
-<!-- End PubGalaxy Code -->
-<!-- PubGalaxy Adblock script bottom -->
-<?php echo adrotate_ad(105); ?>
-<!-- End PubGalaxy Code -->
+<!-- PubGalaxy IAB TCF 2.0 script bottom -->
+<script>
+(function waitGEO() {
+    var readyGEO;
+    if (window['UnicI'] && window['UnicI'].geo && window['UnicI'].geo !== '-' ) {
+        readyGEO = true;
+        console.log(window['UnicI'].geo);
+        if (window['UnicI'].geo === 'EU') {
+            if(document.getElementById("unic-gdpr")) {
+              document.getElementById("unic-gdpr").style.display = 'block';
+            }
+        }
+        if (window['UnicI'].geo === 'CA') {
+            if(document.getElementById("unic-ccpa")) {
+              document.getElementById("unic-ccpa").style.display = 'block';
+            }
+        }
+    }
+    if (!readyGEO) {
+        setTimeout(waitGEO, 200);
+    }
+})();
+</script>
+<!-- PubGalaxy IAB TCF 2.0 script bottom End -->
 </head>
 
 <body <?php body_class(); ?>>
