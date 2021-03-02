@@ -35,8 +35,8 @@
                         </td>
                         <td valign="top">
                         <?php
-                                if(function_exists('related_posts')) {
-                                        related_posts();
+                                if(function_exists('yarpp_related')) {
+					yarpp_related(array('post_type' => 'post'));
                                 }
                         ?>
                         </td>
