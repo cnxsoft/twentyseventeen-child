@@ -124,3 +124,8 @@ function contactform_dequeue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );
 ?>
+
+/* Move pagination before author box, related content... */
+add_filter( 'the_content', function( $content ) {
+    return $content . wp_link_pages( array( 'echo' => FALSE ) );
+}, -1 ); // Lower number = higher priority.
