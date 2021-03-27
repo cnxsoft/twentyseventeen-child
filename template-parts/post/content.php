@@ -107,7 +107,7 @@
                 </tr>
                 </table>
 		<!-- JLA - PubGalaxy Multiplex -->
-		<?php echo adrotate_ad(103); ?>
+		<?php echo adrotate_ad(103); 
 	}
 	?>
 
