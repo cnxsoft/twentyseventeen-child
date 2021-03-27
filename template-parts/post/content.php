@@ -108,8 +108,6 @@
                 </table>
 		<!-- JLA - PubGalaxy Multiplex -->
 		<?php echo adrotate_ad(103); ?>
-
-		<?php twentyseventeen_entry_footer();
 	}
 	?>
 
