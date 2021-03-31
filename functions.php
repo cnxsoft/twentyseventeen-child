@@ -128,4 +128,39 @@ add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );
 add_filter( 'the_content', function( $content ) {
     return $content . wp_link_pages( array( 'echo' => FALSE ) );
 }, -1 ); // Lower number = higher priority.
+
+/* Do not display categories in footer, only tags */
+/**
+     * Prints HTML with meta information for the categories, tags and comments.
+     */
+    function twentyseventeen_entry_footer() {
+
+        /* translators: used between list items, there is a space after the comma */
+        $separate_meta = __( ', ', 'twentyseventeen' );
+
+        // Get Tags for posts.
+        $tags_list = get_the_tag_list( '', $separate_meta );
+
+        // We don't want to output .entry-footer if it will be empty, so make sure its not.
+        if ( ( $tags_list ) || get_edit_post_link() ) {
+
+            echo '<footer class="entry-footer">';
+
+            if ( 'post' === get_post_type() ) {
+               if ( $tags_list ) {
+                    echo '<span class="cat-tags-links">';
+
+                    if ( $tags_list && ! is_wp_error( $tags_list ) ) {
+                        echo '<span class="tags-links">' . twentyseventeen_get_svg( array( 'icon' => 'hashtag' ) ) . '<span class="screen-reader-text">' . __( 'Tags', 'twentyseventeen' ) . '</span>' . $tags_list . '</span>';
+                    }
+
+                    echo '</span>';
+                }
+            }
+
+            twentyseventeen_edit_link();
+
+            echo '</footer> <!-- .entry-footer -->';
+        }
+    }
 ?>
