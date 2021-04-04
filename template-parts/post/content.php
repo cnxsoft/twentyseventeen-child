@@ -91,6 +91,8 @@
 
 	<?php
 	if ( is_single() ) { ?>
+		<!-- JLA - Donations -->
+		<p>Support CNX Software! Donate via <a href="https://paypal.me/jlahk/24usd" target="_blank" rel="nofollow noopener">PayPal</a> or <a href="https://www.cnx-software.com/donate-cryptocurrencies/" rel="nofollow noopener">cryptocurrencies</a>, <a href="https://www.patreon.com/cnxsoft" target="_blank" rel="nofollow noopener">become a Patron</a> on Patreon, or <a href="https://shop.cnx-software.com/" target="_blank" rel="nofollow noopener">buy review samples</a></p>
 		<!-- JLA - Ad related content -->
                 <table>
                 <tr>
