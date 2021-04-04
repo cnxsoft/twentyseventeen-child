@@ -129,6 +129,16 @@ add_filter( 'the_content', function( $content ) {
     return $content . wp_link_pages( array( 'echo' => FALSE ) );
 }, -1 ); // Lower number = higher priority.
 
+/* Add donation links after post */
+function auto_insert_after_post($content) {
+	if (is_single()) {
+		$content .= ‘Support CNX Software! Donate via <a href="https://paypal.me/jlahk/24usd" target="_blank" rel="nofollow noopener">PayPal</a> or <a href="https://www.cnx-software.com/donate-cryptocurrencies/" rel="nofollow noopener">cryptocurrencies</a>, <a href="https://www.patreon.com/cnxsoft" target="_blank" rel="nofollow noopener">become a Patron</a> on Patreon, or <a href="https://shop.cnx-software.com/" target="_blank" rel="nofollow noopener">buy review samples</a>’;
+	}
+	return $content;
+}
+add_filter( “the_content”, “auto_insert_after_post” );
+
+
 /* Do not display categories in footer, only tags */
 /**
      * Prints HTML with meta information for the categories, tags and comments.
