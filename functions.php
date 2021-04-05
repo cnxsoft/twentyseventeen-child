@@ -81,24 +81,6 @@ function add_meta_tags() {
 <?php }
 add_action('wp_head', 'add_meta_tags'); */
 
-/* Add title tag to AMP page */
-add_filter(
-	'wpseo_frontend_presenter_classes',
-	function ( $presenters ) {
-		if (
-			function_exists( 'is_amp_endpoint' )
-			&&
-			is_amp_endpoint()
-			&&
-			array_search( 'Yoast\WP\SEO\Presenters\Title_Presenter', $presenters, true ) === false
-		) {
-			$presenters[] = 'Yoast\WP\SEO\Presenters\Title_Presenter';
-		}
-		return $presenters;
-	}
-);
-
-
 /* Hide reCaptcha logo unless Contact Form 7 is activated */
 function contactform_dequeue_scripts() {
 
