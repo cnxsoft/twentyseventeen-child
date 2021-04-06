@@ -74,13 +74,6 @@ function allow_contributor_uploads() {
     $contributor->add_cap('upload_files');
 }
 
-/* Add Meta Referrer Tag in Header without Plugin
-function add_meta_tags() {
-?>
-    <meta name="referrer" content="always"/>
-<?php }
-add_action('wp_head', 'add_meta_tags'); */
-
 /* Hide reCaptcha logo unless Contact Form 7 is activated */
 function contactform_dequeue_scripts() {
 
