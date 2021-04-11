@@ -49,7 +49,7 @@ add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more_child', 999);
 
 /* Add nofollow to link to comments */
 function add_nofollow_to_comments_popup_link () {
-	return 'rel="nofollow"';
+	return ' rel="nofollow"';
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 
