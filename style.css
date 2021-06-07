@@ -122,3 +122,8 @@ ul ul, ol ol, ul ul ul, ol ol ol {
 /* Word link */
 .site-info { display: none; }
 
+/* Remove underline from social icon */
+a.sidebar-social, a.sidebar-social:hover {
+   text-decoration: none;
+   -webkit-box-shadow: none;
+}

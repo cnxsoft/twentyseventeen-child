@@ -139,4 +139,16 @@ add_filter( 'the_content', function( $content ) {
             echo '</footer> <!-- .entry-footer -->';
         }
     }
+
+/**
+ * Remove dashicons CSS from the page, only load if user is logged in
+ */
+function dashicons_admin_only() {
+    if(!is_user_logged_in()) {
+        global $wp_styles;
+        wp_dequeue_style('dashicons');
+        $wp_styles->registered['dashicons']->src = '';
+    }
+}
+add_action( 'wp_print_styles', 'dashicons_admin_only' );
 ?>
