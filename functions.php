@@ -181,4 +181,18 @@ function wt_cli_delay_cookie_banner()
 <?php
 	}
 }
+
+
+/* Allow modern image formats */
+function allow_modern_images( $mime_types ) {
+  $mime_types['webp'] = 'image/webp';
+  $mime_types['heic'] = 'image/heic';
+  $mime_types['heif'] = 'image/heif';
+  $mime_types['heics'] = 'image/heic-sequence';
+  $mime_types['heifs'] = 'image/heif-sequence';
+  $mime_types['avif'] = 'image/avif';
+  $mime_types['avis'] = 'image/avif-sequence';
+  return $mime_types
+}
+add_filter( 'upload_mimes', 'allow_modern_images', 1, 1 );
 ?>
