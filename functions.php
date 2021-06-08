@@ -151,4 +151,34 @@ function dashicons_admin_only() {
     }
 }
 add_action( 'wp_print_styles', 'dashicons_admin_only' );
+
+/* Delay cookie banner */
+add_action('wp_footer', 'wt_cli_delay_cookie_banner', 10);
+function wt_cli_delay_cookie_banner()
+{
+	if (class_exists('Cookie_Law_Info')) {
+	?>
+		<script>
+			jQuery(function() {
+				var timeDelay = 3000; //Time in milli seconds, 1000 ms = 1 second.
+				CLI.bar_elm.hide();
+				if (CLI.settings.notify_animate_show) {
+					CLI.bar_elm.css('visibility', 'hidden');
+				}
+				setTimeout(function() {
+					if (!CLI_Cookie.read(CLI_ACCEPT_COOKIE_NAME)) {
+						if (CLI.settings.notify_animate_show) {
+							CLI.bar_elm.hide();
+							CLI.bar_elm.css('visibility', 'visible');
+							CLI.bar_elm.slideDown(CLI.settings.notify_animate_show);
+						} else {
+							CLI.bar_elm.show();
+						}
+					}
+				}, timeDelay);
+			});
+		</script>
+<?php
+	}
+}
 ?>
