@@ -96,9 +96,9 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
 <!-- PubGalaxy IAB TCF 2.0 script bottom End -->
 
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
-<link id='wpdiscuz-preload-0' rel='preload' href='<?php echo esc_url( plugins_url( 'assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2', __FILE__ ) ); ?>' as='font' type='font/woff2' crossorigin />
-<link id='wpdiscuz-preload-1' rel='preload' href='<?php echo esc_url( plugins_url( 'assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2', __FILE__ ) ); ?>' as='font' type='font/woff2' crossorigin />
-<link id='wpdiscuz-preload-2' rel='preload' href='<?php echo esc_url( plugins_url( 'assets/third-party/font-awesome-5.13.0/webfonts/fa-regular-400.woff2', __FILE__ ) ); ?>' as='font' type='font/woff2' crossorigin />
+<link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='wpdiscuz-preload-1' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2' as='font' type='font/woff2' crossorigin />
+<link id='wpdiscuz-preload-2' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-regular-400.woff2' as='font' type='font/woff2' crossorigin />
 </head>
 
 <body <?php body_class(); ?>>
