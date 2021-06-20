@@ -146,7 +146,7 @@
 
 		<?php if (!wp_is_mobile()) {
            		/* JLA - PubGalaxy Multiplex */
-           	 	<?php echo adrotate_ad(103); ?>
+           	 	echo adrotate_ad(103);
 		}
 		twentyseventeen_entry_footer();
 	} ?>
