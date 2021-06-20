@@ -78,9 +78,9 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
 	body:not(.title-tagline-hidden) .site-branding-text {max-width: 87%;}
 	section.ad {display: block;float: left;}
 	.site-branding {margin-bottom:69px;}
-	div.custom-header {width: 100% !important;min-height: 220px !important;display: inline-block; margin-bottom: 0!important;}
+	div.custom-header {width: 100% !important;min-height: 280px !important;display: inline-block; margin-bottom: 0!important;}
 	p.site-description {font-size: 0.7em; text-align: left;}
-	.navigation-top nav {margin: auto 23%;}
+	.navigation-top nav {margin: auto 14%;}
 	div.header-ad {display: inline-block;}
 }
 
