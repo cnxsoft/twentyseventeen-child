@@ -15,8 +15,48 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+
+/*Tweaks*/
+.blog .site-main > article, .archive .site-main > article, .search .site-main > article {padding-top:1em; border-bottom:1px solid rgba(0,0,0,0.09);}
+.p-1 {padding:1em;}
+div.cnx-logo {display: inline-block;}
+.entry-title a, .entry-meta a, .page-links a, .page-links a .page-number, .entry-footer a, .entry-footer .cat-links a, .entry-footer .tags-links a, .edit-link a, .post-navigation a, .logged-in-as a, .comment-navigation a, .comment-metadata a, .comment-metadata a.comment-edit-link, .comment-reply-link, a .nav-title, .pagination a, .comments-pagination a, .site-info a, .widget .widget-title a, .widget ul li a, .site-footer .widget-area ul li a, .site-footer .widget-area ul li a {line-height: 1.8em;}
+.one {width: 100%;display: block;}
+.blog:not(.has-sidebar) #primary article, .archive:not(.page-one-column):not(.has-sidebar) #primary article, .search:not(.has-sidebar) #primary article, .error404:not(.has-sidebar) #primary .page-content, .error404.has-sidebar #primary .page-content, body.page-two-column:not(.archive) #primary .entry-content, body.page-two-column #comments {width: 100%;}
+section.ad {padding: 1em 0;}
+.single-post .entry-title, .page .entry-title, .page .panel-content .entry-title, .page-title, body.page:not(.twentyseventeen-front-page) .entry-title {font-size:1.625rem!important}
+#comments {padding-top: 1em; margin: 0;}
+
+.rpwwt-widget ul {list-style: outside none none; margin-left: 0; margin-right: 0;padding-left: 0; padding-right: 0;}
+.rpwwt-widget ul li {overflow: hidden;}
+#rpwwt-recent-posts-widget-with-thumbnails-2 img {width: 40px; height: 40px;}
+.rpwwt-widget ul li img {display: inline; float: left; margin: .3em .75em .75em 0;}
+span.rpwwt-post-title {margin-top: 2px;}
+
+
+/* Table management - To improve... */
+table {
+    word-break: break-all;
+}
+
+.yarpp-related, .tablepress {
+	word-break: normal;
+}
+
+/* Center embedded tweets */
+.twitter-tweet {margin:auto;}
+
+/*Original Article*/
+header.entry-header div.post-title div.article-origin, header.entry-header div.post-title div.article-origin a, header.entry-header div.post-title div.article-origin span {color: rgba(0,0,0,0.5); margin-bottom: 1em}
+header.entry-header div.post-title div.article-origin a:hover {color: rgba(0,0,0,1);}
+
+/*Subfooter*/
+footer#entry-subFooter {border-bottom: 1px solid #eee;}
+
 /*Computer screen */
 @media screen and (min-width: 48em) {
+	.one-half {width:50%; float:left;}
+	.site-title {font-size: 2rem; text-align: left;}
 	.twentyseventeen-front-page.has-header-image .custom-header-image {
 	/*height: 1200px;*/
 	/*height: 100vh;*/
@@ -30,9 +70,53 @@ Use it to make something cool, have fun, and share what you've learned with othe
 		/* padding-left: 3em; */
 		/* padding-right: 3em; */
 	}
+	#masthead .wrap {text-align: center;}
+	.has-sidebar:not(.error404) #primary {float: left;width: 65%;}
+	h2.widget-title {font-size: 1em;margin-bottom: 0.5em;}
+	/*Subfooter*/
+	footer#entry-subFooter {padding: 2em; display: inline-block;}
+	body:not(.title-tagline-hidden) .site-branding-text {max-width: 87%;}
+	section.ad {display: block;float: left;}
+	.site-branding {margin-bottom:69px;}
+	div.custom-header {width: 100% !important;min-height: 220px !important;display: inline-block; margin-bottom: 0!important;}
+	p.site-description {font-size: 0.7em; text-align: left;}
+	.navigation-top nav {margin: auto 23%;}
+	div.header-ad {display: inline-block;}
 }
 
 /* Mobile screen*/
+@media screen and (max-width: 48em) {
+	h2, .home.blog .entry-title {font-size: 1rem;}
+	.has-sidebar:not(.error404) #primary, .has-sidebar #secondary {width: 100%!important;}
+    .post-thumbnail {margin-right: 0em!important;width: 33%!important}
+    section#wpp-2.widget.popular-posts {width: 100%!important;}
+    .one-third-m {width:33%;float: left;padding: 0.5rem}
+    .two-third-m {width:66%; float: left; padding: 0.5rem;}
+    .one-m {width:100%; float: left;}
+    h2.widget-title {font-size: 1em;margin-bottom: 0.5em;}
+    footer#entry-subFooter {padding: 2em 0; display: inline-block;}
+    article div.two-third-m div.entry-meta {font-size: 0.5em;padding: 0;}
+    body:not(.twentyseventeen-front-page) .entry-header {display: inline-block;}
+    section.ad {margin: 0 auto;}
+    .blog .site-main > article, .archive .site-main > article, .search .site-main > article {padding:0!important;}
+    body:not(.twentyseventeen-front-page) .entry-header {padding: 0.5em 0 0 0;}
+    .entry-header .post-thumbnail {margin-bottom: 0;}
+    .site-title {font-size: 3vh; font-size:20px;}
+}
+
+ 
+@media screen and (orientation: portrait) and (min-width: 30em) {
+      .navigation-top nav {margin: auto 24%;}
+   .post-thumbnail {padding: 0.4em 1em 1em 0; margin-bottom: 0;}
+      .one-third-m {width: 27%;}
+      .two-third-m {width: 70%;}
+    .site-title {font-size: 1.76em;}
+    div.header-ad {margin: 1em 0}
+	.has-sidebar:not(.error404) #primary, .has-sidebar #secondary {width: 100%!important;}
+	.site-branding {margin-bottom: 50px!important;}
+	body:not(.twentyseventeen-front-page) .entry-header {display: block;}
+}
+
 .has-header-image.twentyseventeen-front-page .custom-header {
 	/*display: table;*/
 	/*height: 300px;*/
@@ -66,9 +150,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .youtube-player { display: block; margin: 0 auto; }
 
 .has-sidebar #secondary {
-    width: 29% !important;
-    font-size: 14px;
-    font-size: 0.875rem;
+    width: 29%;
     line-height: 1em;
 }
 
@@ -77,12 +159,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
     padding: 1.5em 0 0;
 	}
 
-/* Main zone width */
-	.has-sidebar:not(.error404) #primary {
-    float: left;
-    width: 70%;
-}
-
 /*Top banner height */
 .site-branding {
     padding: 1.5em 0;
@@ -90,7 +166,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* Lists margins & padding */
 ul, ol {
-    margin: 0em 2.0em;
+    margin: 0em 0.5em;
     padding: 0;
     padding-top: 0px;
     padding-right: 0px;
@@ -127,3 +203,4 @@ a.sidebar-social, a.sidebar-social:hover {
    text-decoration: none;
    -webkit-box-shadow: none;
 }
+

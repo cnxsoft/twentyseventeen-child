@@ -26,9 +26,17 @@
 
         <!-- JLA  -->
         <div class="fixed"></div>
-        <?php echo adrotate_group(1); ?>
-
-
+        <?php 
+	        if (function_exists('adrotate_group')) {
+				if (!wp_is_mobile()) {
+					echo adrotate_group(1); 
+				} else {
+					echo adrotate_group(11); 
+				}
+			}
+        ?>
+				
+	
 	<div class="panel-content">
 		<div class="wrap">
 			<header class="entry-header">

@@ -27,22 +27,21 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-             <!-- JLA - Ad related content -->
-                <table>
-                <tr>
-                        <td width=338>
-                        <?php echo adrotate_group(4); ?>
-                        </td>
-                        <td valign="top">
-                        <?php
-                                if(function_exists('yarpp_related')) {
-					yarpp_related(array('post_type' => 'post'));
-                                }
-                        ?>
-                        </td>
-                </tr>
-                </table>
-		<!-- JLA - PubGalaxy Multiplex -->
-                <?php echo adrotate_ad(103); ?>
+    <!-- JLA - Ad related content -->
+	<section class="ad ad-page">
+		<?php
+		if (function_exists('adrotate_group')) {
+			if (!wp_is_mobile()) {
+				echo adrotate_group(4); 
+			} else {
+   			    if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
+                                echo adrotate_group(14);
+                            } else {
+				echo adrotate_group(12);
+			    }
+			}
+		}
+		?>
+	</section>
 
 </article><!-- #post-## -->

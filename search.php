@@ -30,26 +30,33 @@ get_header(); ?>
                         /* Start the Loop */
                         while ( have_posts() ) : the_post();
 
-                                /**
-                                 * Run the loop for the search to output the results.
-                                 * If you want to overload this in a child theme then include a file
-                                 * called content-search.php and that will be used instead.
-                                 */
-                                get_template_part( 'template-parts/post/content', 'excerpt' );
-                                 /* JLA 2nd and 6th position ads */
-                                STATIC $countresults = 0; /* JLA */
-                                switch ($countresults){
+                            /**
+                             * Run the loop for the search to output the results.
+                             * If you want to overload this in a child theme then include a file
+                             * called content-search.php and that will be used instead.
+                             */
+                            get_template_part( 'template-parts/post/content', 'excerpt' );
+                             if (!wp_is_mobile() && function_exists('adrotate_group')) {
+                                STATIC $countpost = 0; /* JLA */
+                                switch ($countpost){
                                     case 1: echo adrotate_group(8);
                                     break;
                                     case 5: echo adrotate_group(9);
                                     break;
                                     default:
-                                 }
-                                $countresults++;
-                        endwhile; // End of the loop.
-                        /* JLA - Bottom 728x90 ad */
-                        echo adrotate_group(2);
-
+                                }
+                                $countpost++;
+                            }
+                            endwhile;// End of the loop.
+        
+                            /* JLA - Bottom ad */
+                            if (function_exists('adrotate_group')) {
+                                if (!wp_is_mobile()) {
+                                    echo adrotate_group(2); 
+                                } else {
+                                    echo adrotate_group(7); 
+                                }
+                            }
 
                         the_posts_pagination( array(
                                 'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',

@@ -46,19 +46,28 @@ get_header(); ?>
 					 */
 					get_template_part( 'template-parts/post/content', get_post_format() );
 			                /* JLA 2nd and 6th position ads */
-			                STATIC $countpost = 0; /* JLA */
-			                switch ($countpost){
-			                        case 1: echo adrotate_group(8);
-			                        break;
-                       				case 5: echo adrotate_group(9);
-                         			break;
-			                        default:
-			                }
-			                $countpost++;
+					if (!wp_is_mobile() && function_exists('adrotate_group')) {
+			  	            	STATIC $countpost = 0; /* JLA */
+			  	    	        switch ($countpost){
+			  	      	       	case 1: echo adrotate_group(8);
+						        break;
+		              				case 5: echo adrotate_group(9);
+		                 			break;
+					                default:
+					        }
+				                $countpost++;
+					}
 				endwhile;
-				/* JLA - Bottom 728x90 ad */
-				echo adrotate_group(2); 
-
+				
+				/* JLA - Bottom ad */
+				if (function_exists('adrotate_group')) {
+					if (!wp_is_mobile()) {
+						echo adrotate_group(2); 
+					} else {
+						echo adrotate_group(7); 
+					}
+				}
+				
 				the_posts_pagination( array(
 					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
 					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),

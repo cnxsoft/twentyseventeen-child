@@ -1,13 +1,7 @@
 <?php
 function my_theme_enqueue_styles() {
-
     $parent_style = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
-
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( $parent_style )
-    );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
@@ -74,31 +68,6 @@ function allow_contributor_uploads() {
     $contributor->add_cap('upload_files');
 }
 
-/* Hide reCaptcha logo unless Contact Form 7 is activated */
-function contactform_dequeue_scripts() {
-
-    $load_scripts = false;
-
-    if( is_page() ) {
-    	$post = get_post();
-
-    	if( has_shortcode($post->post_content, 'contact-form-7') ) {
-        	$load_scripts = true;
-			
-		}
-
-    }
-
-    if( ! $load_scripts ) {
-        wp_dequeue_script( 'contact-form-7' );
-	wp_dequeue_script('google-recaptcha');
-        wp_dequeue_style( 'contact-form-7' );
-		
-    }
-
-}
-add_action( 'wp_enqueue_scripts', 'contactform_dequeue_scripts', 99 );
-
 /* Move pagination before author box, related content... */
 add_filter( 'the_content', function( $content ) {
     return $content . wp_link_pages( array( 'echo' => FALSE ) );
@@ -137,8 +106,31 @@ add_filter( 'the_content', function( $content ) {
             twentyseventeen_edit_link();
 
             echo '</footer> <!-- .entry-footer -->';
-        }
+        } 
+
+  if (function_exists('adrotate_group') || function_exists('yarpp_related')) {
+    echo '<footer id="entry-subFooter" class="one">';
+    if(function_exists('adrotate_group')) {
+      echo '<div class="one-half">';
+      if (!wp_is_mobile()) {
+        echo adrotate_group(4);
+      } else {
+	 if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
+             echo adrotate_group(14);
+         } else {
+             echo adrotate_group(12);
+	 }
+      }
+      echo '</div>';
+    } 
+    if(function_exists('yarpp_related')) {
+      echo '<div class="one-half">';
+      yarpp_related(array('post_type' => 'post'));
+      echo '</div>'; 
     }
+    echo '</footer>';
+  }
+}
 
 /**
  * Remove dashicons CSS from the page, only load if user is logged in
@@ -152,47 +144,15 @@ function dashicons_admin_only() {
 }
 add_action( 'wp_print_styles', 'dashicons_admin_only' );
 
-/* Delay cookie banner */
-add_action('wp_footer', 'wt_cli_delay_cookie_banner', 10);
-function wt_cli_delay_cookie_banner()
-{
-	if (class_exists('Cookie_Law_Info')) {
-	?>
-		<script>
-			jQuery(function() {
-				var timeDelay = 3000; //Time in milli seconds, 1000 ms = 1 second.
-				CLI.bar_elm.hide();
-				if (CLI.settings.notify_animate_show) {
-					CLI.bar_elm.css('visibility', 'hidden');
-				}
-				setTimeout(function() {
-					if (!CLI_Cookie.read(CLI_ACCEPT_COOKIE_NAME)) {
-						if (CLI.settings.notify_animate_show) {
-							CLI.bar_elm.hide();
-							CLI.bar_elm.css('visibility', 'visible');
-							CLI.bar_elm.slideDown(CLI.settings.notify_animate_show);
-						} else {
-							CLI.bar_elm.show();
-						}
-					}
-				}, timeDelay);
-			});
-		</script>
-<?php
+/* Delay Cookie banner */
+function wt_cli_defer_scripts( $tag, $handle, $src ) {
+	$defer = array( 
+	  'cookie-law-info',
+	);
+	if ( in_array( $handle, $defer ) ) {
+	   return '<script src="' . $src . '" id="'.$handle.'-js" defer="defer" type="text/javascript"></script>' . "\n";
 	}
-}
-
-
-/* Allow modern image formats */
-function allow_modern_images( $mime_types ) {
-  $mime_types['webp'] = 'image/webp';
-  $mime_types['heic'] = 'image/heic';
-  $mime_types['heif'] = 'image/heif';
-  $mime_types['heics'] = 'image/heic-sequence';
-  $mime_types['heifs'] = 'image/heif-sequence';
-  $mime_types['avif'] = 'image/avif';
-  $mime_types['avis'] = 'image/avif-sequence';
-  return $mime_types;
-}
-add_filter( 'upload_mimes', 'allow_modern_images', 1, 1 );
+	return $tag;
+} 
+add_filter( 'script_loader_tag', 'wt_cli_defer_scripts', 10, 3 );
 ?>

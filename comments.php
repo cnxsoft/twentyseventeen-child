@@ -78,8 +78,17 @@ if ( post_password_required() ) {
 	endif;
 
 	comment_form();
+        /* JLA - Bottom ad after comments */
+	if (function_exists('adrotate_group')) {
+		if (!wp_is_mobile()) {
+			echo adrotate_group(2); 
+		} else {
+			if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
+                            echo adrotate_group(15);
+                        } else {
+			    echo adrotate_group(7); 
+			}
+		}
+	}
 	?>
-	<!-- JLA - Ad after comments -->
-	<?php echo adrotate_group(2) ?>
-
 </div><!-- #comments -->
