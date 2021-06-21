@@ -106,7 +106,7 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
 
  
 @media screen and (orientation: portrait) and (min-width: 30em) {
-      .navigation-top nav {margin: auto 5%;}
+      .navigation-top nav {margin: auto 0%;}
    .post-thumbnail {padding: 0.4em 1em 1em 0; margin-bottom: 0;}
       .one-third-m {width: 27%;}
       .two-third-m {width: 72%;}
