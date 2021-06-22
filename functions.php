@@ -68,6 +68,20 @@ function allow_contributor_uploads() {
     $contributor->add_cap('upload_files');
 }
 
+/* display featured post thumbnails in WordPress feeds */
+add_filter( 'the_excerpt_rss', 'cnx_ThumbnailsFeeds' );
+add_filter( 'the_content_feed', 'cnx_ThumbnailsFeeds' );
+function cnx_ThumbnailsFeeds( $content ) {
+  global $post;
+  if( is_feed() ) {
+    if ( has_post_thumbnail( $post->ID ) ){
+      $prepend = '<div>' . get_the_post_thumbnail( $post->ID, 'medium', array( 'style' => 'margin-bottom: 10px;' ) ) . '</div>';
+      $content = $prepend . $content;
+    }
+  }
+  return $content;
+}
+
 /* Move pagination before author box, related content... */
 add_filter( 'the_content', function( $content ) {
     return $content . wp_link_pages( array( 'echo' => FALSE ) );
