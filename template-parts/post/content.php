@@ -57,7 +57,12 @@
 			if (!wp_is_mobile()) {
 				the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 			} else {
-				echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', '<img alt="" align="left" width=300 height=250 margin=10px src="' . catch_that_image() . '"></a></div>';
+				if (! has_post_thumbnail()) {
+					echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', '<img alt="" align="left" width=500 height=250 margin=10px src="' . catch_that_image() . '"></a></div>';
+				} else {
+					echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', the_post_thumbnail( 'post-thumbnail' ), '</a></div>';
+				}
+
 				echo '<div class="two-third-m">';
 					if ( 'post' === get_post_type() ) {
 						echo '<div class="entry-meta">';
@@ -65,7 +70,7 @@
 						twentyseventeen_edit_link();
 						echo '</div>';
 					}
-					echo '<div class="post-title">';
+					echo '<div class="post-title">', 
 					the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 					echo '</div>';
 				echo '</div>';
@@ -74,7 +79,12 @@
 			if (!wp_is_mobile()) {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); 
 			} else {
-				echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', '<img alt="" align="left" width=300 height=250 margin=10px src="' . catch_that_image() . '"></a></div>';
+				if (! has_post_thumbnail()) {
+					echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', '<img alt="" align="left" width=300 height=250 margin=10px src="' . catch_that_image() . '"></a></div>';
+				} else {
+					echo '<div class="post-thumbnail one-third-m"><a href="' . esc_url( get_permalink() ) . '">', the_post_thumbnail( 'post-thumbnail' ), '</a></div>';
+				}
+
 				echo '<div class="two-third-m">';
 					if ( 'post' === get_post_type() ) {
 						echo '<div class="entry-meta">';
@@ -95,7 +105,7 @@
 			<?php if ( '' !== get_the_post_thumbnail() && ! is_single() && ! wp_is_mobile() ) : ?>
 				<div class="post-thumbnail">
 					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'thumbnail' ); ?>
+						<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 					</a>
 				</div><!-- .post-thumbnail -->
 			<?php else :

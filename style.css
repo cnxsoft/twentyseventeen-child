@@ -102,7 +102,7 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
     body:not(.twentyseventeen-front-page) .entry-header {padding: 0.5em 0 0 0;}
     .entry-header .post-thumbnail {margin-bottom: 0;}
     .site-title {font-size: 3vh; font-size:20px;}
-    div.header-ad {display:inline-block;} 
+    header#masthead div.header-ad {display: inline-block; width: 100%;}
 }
 
  
