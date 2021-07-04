@@ -66,7 +66,7 @@
 				echo '<div class="two-third-m">';
 					if ( 'post' === get_post_type() ) {
 						echo '<div class="entry-meta">';
-						twentyseventeen_posted_on();
+						echo twentyseventeen_time_link();
 						twentyseventeen_edit_link();
 						echo '</div>';
 					}
