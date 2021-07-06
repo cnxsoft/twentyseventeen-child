@@ -199,6 +199,15 @@ ul ul, ol ol, ul ul ul, ol ol ol {
 /* Word link */
 .site-info { display: none; }
 
+/* Remove underline from linked images, set grey shadow box to match background color */
+.entry-content a img,
+.comment-content a img,
+.widget a img {
+        -webkit-box-shadow: 0 0 0 8px #f9f9f8;
+        box-shadow: 0 0 0 8px #f9f9f8;
+}
+
+
 /* Remove underline from social icon */
 a.sidebar-social, a.sidebar-social:hover {
    text-decoration: none;
