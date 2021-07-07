@@ -169,4 +169,12 @@ function wt_cli_defer_scripts( $tag, $handle, $src ) {
 	return $tag;
 } 
 add_filter( 'script_loader_tag', 'wt_cli_defer_scripts', 10, 3 );
+
+/* Titles of tag pages start with News about */
+add_filter( 'get_the_archive_title', function ($title) {    
+        if ( is_tag() ) {    
+            $title = single_tag_title( 'News about ', false );    
+        }
+        return $title;    
+    });
 ?>
