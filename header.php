@@ -105,6 +105,73 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
         <script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
 <?php } ?> 
 
+<!-- Style for follow.it code. It must be in head for W3C validation -->
+<style>
+  .form-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    max-width: none;
+    border-radius: 6px;
+  }
+  .form-preview,
+  .form-preview * {
+    box-sizing: border-box;
+  }
+  .form-preview .preview-heading {
+    width: 100%;
+  }
+  .form-preview .preview-heading h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .form-preview .preview-input-field {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .form-preview .preview-input-field input {
+    width: 90%;
+    height: 30px;
+    border-radius: 6px;
+    border: 2px solid #e9e8e8;
+    background-color: #f9f9f8;
+    margin: auto;
+    outline: none;
+  }
+  .form-preview .preview-input-field input {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+  }
+  .form-preview .preview-input-field input::placeholder {
+    color: #000000;
+    opacity: 1;
+  }
+  .form-preview .preview-input-field input:-ms-input-placeholder {
+    color: #000000;
+  }
+  .form-preview .preview-input-field input::-ms-input-placeholder {
+    color: #000000;
+  }
+  .form-preview .preview-submit-button {
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .form-preview .preview-submit-button button {
+    width: 100%;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    line-height: 0px;
+  }
+  .form-preview .preview-submit-button button:hover {
+    cursor: pointer;
+  }
+</style>
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
 <link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
 <link id='wpdiscuz-preload-1' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2' as='font' type='font/woff2' crossorigin />
