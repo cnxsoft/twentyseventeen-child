@@ -26,7 +26,7 @@
 <!-- PubGalaxy IAB TCF 2.0 script Top -->
 <script src="https://cmp.uniconsent.com/v2/stub.min.js"></script>
 <script async src='https://cmp.uniconsent.com/v2/de538b0a3a/cmp.js'></script>
-<script type="text/javascript">
+<script>
 window.googletag = window.googletag || {};
 window.googletag.cmd = window.googletag.cmd || [];
 window.googletag.cmd.push(function () {
@@ -185,7 +185,7 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
 
-        <header id="masthead" class="site-header" role="banner">
+        <header id="masthead" class="site-header">
 
                 <?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 
