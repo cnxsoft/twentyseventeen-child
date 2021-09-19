@@ -45,10 +45,11 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
             script.src = 'https://dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom_new.min.js';
             document.head.appendChild(script);
 
+/* Disable... using amz.to links instead 
             var script = document.createElement('script');
             script.async = true;
             script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
-            document.head.appendChild(script);
+            document.head.appendChild(script); */
 	    
 	    /* Disable Adsense for now to fix CLS issue    
 	    var script = document.createElement('script');
@@ -62,10 +63,11 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
             script.src = '//pubgalaxy-com.videoplayerhub.com/gallery.js';
             document.head.appendChild(script);
 
+/* Disable use fave.co links instead 
             var script = document.createElement('script');
             script.async = true;
             script.src = 'https://s.skimresources.com/js/38249X983277.skimlinks.js';
-            document.head.appendChild(script);
+            document.head.appendChild(script); */
         }
     }
 });
@@ -104,74 +106,6 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
         <!-- JLA AMP-stick -->
         <script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
 <?php } ?> 
-
-<!-- Style for follow.it code. It must be in head for W3C validation -->
-<style>
-  .form-preview {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 10px;
-    max-width: none;
-    border-radius: 6px;
-  }
-  .form-preview,
-  .form-preview * {
-    box-sizing: border-box;
-  }
-  .form-preview .preview-heading {
-    width: 100%;
-  }
-  .form-preview .preview-heading h5 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .form-preview .preview-input-field {
-    margin-top: 10px;
-    width: 100%;
-  }
-  .form-preview .preview-input-field input {
-    width: 90%;
-    height: 30px;
-    border-radius: 6px;
-    border: 2px solid #e9e8e8;
-    background-color: #f9f9f8;
-    margin: auto;
-    outline: none;
-  }
-  .form-preview .preview-input-field input {
-    color: #000000;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    text-align: center;
-  }
-  .form-preview .preview-input-field input::placeholder {
-    color: #000000;
-    opacity: 1;
-  }
-  .form-preview .preview-input-field input:-ms-input-placeholder {
-    color: #000000;
-  }
-  .form-preview .preview-input-field input::-ms-input-placeholder {
-    color: #000000;
-  }
-  .form-preview .preview-submit-button {
-    width: 70%;
-    margin: auto;
-    margin-top: 10px;
-  }
-  .form-preview .preview-submit-button button {
-    width: 100%;
-    height: 30px;
-    border: 0;
-    border-radius: 6px;
-    line-height: 0px;
-  }
-  .form-preview .preview-submit-button button:hover {
-    cursor: pointer;
-  }
-</style>
 <?php if ( function_exists( 'amp_is_request' ) && !amp_is_request() ) { ?>
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
 <link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
