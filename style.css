@@ -215,13 +215,13 @@ a.sidebar-social, a.sidebar-social:hover {
 }
 
 /* Desktop Sticky banner style */
-.fixedbar { position: fixed; bottom: 0px; left: 0; width: 100%; min-height: 90px; max-height: 100px; padding: 5px 5px; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.1); -webkit-transition: all .1s ease-in; transition: all .1s ease-in; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.6); z-index: 20; }
-.fixedbar-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 12px 0 0; position: absolute; right: 0; top: -30px; background-color: #fefefe; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.08); }
-.fixedbar .fixebar-close svg { width: 22px; height: 22px; fill: #000; }
-.fixedbar .fixedbar-content { overflow: hidden; display: block; position: relative; height: 100px; width: 100%; margin-right: 10px; margin-left: 10px; }
+.fixeddbar { position: fixed; bottom: 0px; left: 0; width: 100%; min-height: 90px; max-height: 100px; padding: 5px 5px; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.1); -webkit-transition: all .1s ease-in; transition: all .1s ease-in; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.6); z-index: 20; }
+.fixeddbar-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 12px 0 0; position: absolute; right: 0; top: -30px; background-color: #fefefe; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.08); }
+.fixeddbar .fixeddbar-close svg { width: 22px; height: 22px; fill: #000; }
+.fixeddbar .fixeddbar-content { overflow: hidden; display: block; position: relative; height: 100px; width: 100%; margin-right: 10px; margin-left: 10px; }
 
 /* Mobile Sticky banner style */
 .fixedmbar { position: fixed; bottom: 0px; left: 0; width: 100%; min-height: 65px; max-height: 75px; padding: 5px 5px; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.1); -webkit-transition: all .1s ease-in; transition: all .1s ease-in; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.6); z-index: 20; }
 .fixedmbar-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 12px 0 0; position: absolute; right: 0; top: -30px; background-color: #fefefe; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.08); }
-.fixedmbar .fixebar-close svg { width: 22px; height: 22px; fill: #000; }
-.fixedmbar .fixedbar-content { overflow: hidden; display: block; position: relative; height: 60px; width: 100%; margin-right: 5px; margin-left: 5px; }
+.fixedmbar .fixeddbar-close svg { width: 22px; height: 22px; fill: #000; }
+.fixedmbar .fixeddbar-content { overflow: hidden; display: block; position: relative; height: 60px; width: 100%; margin-right: 5px; margin-left: 5px; }
