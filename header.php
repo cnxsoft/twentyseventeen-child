@@ -21,6 +21,8 @@
 
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel='preconnect' href='//cmp.uniconsent.com' />
+<link rel='preconnect' href='//static.addtoany.com' />
 
 <?php if ( function_exists( 'amp_is_request' ) && !amp_is_request() ) : ?>
 <!-- PubGalaxy IAB TCF 2.0 script Top -->
