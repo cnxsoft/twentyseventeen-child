@@ -180,12 +180,12 @@ add_filter( 'get_the_archive_title', function ($title) {
     });
 
 /* Only show AMP page (Standard) to mobile clients */
-add_filter( 'option_amp-options', function ( $value ) {
+/* add_filter( 'option_amp-options', function ( $value ) {
 	if ( wp_is_mobile() ) {
 		$value['theme_support'] = 'standard';
 	}
 	return $value;
-}, 99999 );
+}, 99999 ); */
 
 /* Disable Libre Franklin Google font */
 /* Remove Google Fonts from being imported from Google:
