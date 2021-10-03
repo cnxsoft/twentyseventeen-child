@@ -34,7 +34,7 @@ get_header(); ?>
 						echo adrotate_group(2); 
 					} else {
    					    if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
-                                    		echo adrotate_group(15);
+                                    //		echo adrotate_group(15);
 	                                    } else {
 						echo adrotate_group(7);
 					    }
