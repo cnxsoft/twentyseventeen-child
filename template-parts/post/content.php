@@ -158,7 +158,7 @@
 	<?php
 	if ( is_single() ) { ?>
 		<!-- JLA - Donations -->
-		<p>Support CNX Software! Donate via <b><u><a href="https://paypal.me/jlahk/24usd" target="_blank" rel="nofollow noopener">PayPal</a></u></b> or <b><u><a href="https://www.cnx-software.com/donate-cryptocurrencies/" rel="nofollow noopener">cryptocurrencies</a></u></b>, <b><u><a href="https://www.patreon.com/cnxsoft" target="_blank" rel="nofollow noopener">become a Patron</a></u></b> on Patreon, or <b><u><a href="https://shop.cnx-software.com/" target="_blank" rel="nofollow noopener">buy review samples</a></u></b></p>
+		<p>Support CNX Software! Donate via <b><u><a href="https://www.cnx-software.com/donate-cryptocurrencies/" rel="nofollow noopener">cryptocurrencies</a></u></b> or <b><u><a href="https://www.patreon.com/cnxsoft" target="_blank" rel="nofollow noopener">become a Patron</a></u></b> on Patreon</p>
 
 		<?php if (!wp_is_mobile()) {
            		/* JLA - PubGalaxy Multiplex */
