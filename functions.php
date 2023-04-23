@@ -222,4 +222,21 @@ add_action( 'admin_init', 'my_remove_parent_styles' );
 function my_remove_parent_styles() {
         remove_editor_styles();
 }
+
+/* Add one hour delay to RSS feed */
+function custom_rss_delay($query) {
+    if ($query->is_feed) {
+        $delay = 60 * 60 * 1; // 1 hour delay
+        $query->set('orderby','post_date');
+        $query->set('order','DESC');
+        $query->set('date_query', array(
+            array(
+                'after' => date('Y-m-d H:i:s', time() - $delay ),
+                'inclusive' => true,
+            ),
+        ));
+    }
+    return $query;
+}
+add_filter('pre_get_posts','custom_rss_delay');
 ?>
