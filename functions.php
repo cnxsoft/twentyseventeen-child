@@ -239,4 +239,13 @@ function custom_rss_delay($query) {
     return $query;
 }
 add_filter('pre_get_posts','custom_rss_delay');
+
+/* Convert Gravatar profile photo to WebP for performance */
+function use_webp_public_service($avatar) {
+	$avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com"), "secure.gravatar.com", $avatar);
+    $avatar = str_replace("https://secure.gravatar.com", "https://gravatar.webp.se", $avatar);
+	return $avatar;
+}
+add_filter('get_avatar', 'use_webp_public_service');
+
 ?>
