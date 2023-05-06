@@ -48,6 +48,20 @@ function add_nofollow_to_comments_popup_link () {
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 
+/* Preload first image to please PageSpeed */
+function preload_first_image() {
+  global $post;
+  
+  if (has_post_thumbnail($post->ID)) {
+    $image_id = get_post_thumbnail_id($post->ID);
+    $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
+    
+    echo '<link rel="preload" href="' . $image_url . '" as="image">';
+  }
+}
+add_action('wp_head', 'preload_first_image');
+
+
 /* Disable BIG image scaling introduced in WP 5.3 */
 add_filter( 'big_image_size_threshold', '__return_false' );
 
