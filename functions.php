@@ -50,9 +50,9 @@ add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_l
 
 /* Preload first image to please PageSpeed */
 function preload_first_image() {
-  global $post;
+  if (is_singular() && has_post_thumbnail()) {
+    global $post;
   
-  if (has_post_thumbnail($post->ID)) {
     $image_id = get_post_thumbnail_id($post->ID);
     $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
     
