@@ -262,4 +262,9 @@ function use_webp_public_service($avatar) {
 }
 add_filter('get_avatar', 'use_webp_public_service');
 
+/* Limit the number of sitemap entries for Yoast SEO */
+function max_entries_per_sitemap() {
+    return 100;
+}
+add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
 ?>
