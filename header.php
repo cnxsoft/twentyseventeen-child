@@ -62,7 +62,7 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
 
 	    var script = document.createElement('script');
             script.async = true;
-            script.src = '//pubgalaxy-com.videoplayerhub.com/gallery.js';
+            script.src = '//btloader.com/tag?h=pubgalaxy-com&upapi=true';
             document.head.appendChild(script);
 
 /* Disable use fave.co links instead 
