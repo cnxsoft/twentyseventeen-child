@@ -237,23 +237,6 @@ function my_remove_parent_styles() {
         remove_editor_styles();
 }
 
-/* Add one hour delay to RSS feed */
-function custom_rss_delay($query) {
-    if ($query->is_feed) {
-        $delay = 60 * 60 * 1; // 1 hour delay
-        $query->set('orderby','post_date');
-        $query->set('order','DESC');
-        $query->set('date_query', array(
-            array(
-                'after' => date('Y-m-d H:i:s', time() - $delay ),
-                'inclusive' => true,
-            ),
-        ));
-    }
-    return $query;
-}
-add_filter('pre_get_posts','custom_rss_delay');
-
 /* Convert Gravatar profile photo to WebP for performance */
 function use_webp_public_service($avatar) {
 	$avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com"), "secure.gravatar.com", $avatar);
