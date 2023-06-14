@@ -53,12 +53,14 @@ __tcfapi("addEventListener", 2, function(tcData, success) {
             script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
             document.head.appendChild(script); */
 	    
-	    /* Disable Adsense for now to fix CLS issue    
-	    var script = document.createElement('script');
-            script.async = true;
-	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
-            script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-            document.head.appendChild(script); */
+	    /* Enable Adsense for now to fix CLS issue   */
+            if (wp_is_mobile()) {
+            	    var script = document.createElement('script');
+                    script.async = true;
+            	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
+                    script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+                    document.head.appendChild(script);
+            }
 
 	    var script = document.createElement('script');
             script.async = true;
