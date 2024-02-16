@@ -48,7 +48,7 @@ function add_nofollow_to_comments_popup_link () {
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 
-/* Preload first image to please PageSpeed */  
+/* Preload first image to please PageSpeed - Disabled since I can't find how to generate the proper URL   
 function preload_first_image() {
   if (!is_feed() && is_singular() && has_post_thumbnail()) {
     global $post;
@@ -60,6 +60,7 @@ function preload_first_image() {
   }
 }
 add_action('wp_head', 'preload_first_image');
+*/
 
 
 /* Disable BIG image scaling introduced in WP 5.3 */
