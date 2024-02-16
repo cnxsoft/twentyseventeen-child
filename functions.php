@@ -48,13 +48,13 @@ function add_nofollow_to_comments_popup_link () {
 }
 add_filter ( 'comments_popup_link_attributes', 'add_nofollow_to_comments_popup_link' ); 
 
-/* Preload first image to please PageSpeed */
+/* Preload first image to please PageSpeed */  
 function preload_first_image() {
   if (!is_feed() && is_singular() && has_post_thumbnail()) {
     global $post;
   
     $image_id = get_post_thumbnail_id($post->ID);
-    $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
+    $image_url = wp_get_attachment_image_src($image_id, 'medium')[0];
     
     echo '<link rel="preload" href="' . $image_url . '" as="image">';
   }
@@ -250,4 +250,6 @@ function max_entries_per_sitemap() {
     return 100;
 }
 add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
+
+/* Test visuals free experience ;) */
 ?>
