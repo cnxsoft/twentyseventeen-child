@@ -55,5 +55,8 @@
                 }
         }
 ?>
+<amp-iframe data-block-on-consent="_till_responded" width="1" height="1" sandbox="allow-scripts allow-same-origin" frameborder="0" src="https://dsh7ky7308k4b.cloudfront.net/load-cookie-with-consent.html?endpoint=pubgalaxy&amp;max_sync_count=5" class="i-amphtml-layout-fixed i-amphtml-layout-size-defined" style="width:1px;height:1px" i-amphtml-layout="fixed">
+<amp-img layout="fill" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" placeholder class="i-amphtml-layout-fill i-amphtml-layout-size-defined" i-amphtml-layout="fill"></amp-img>
+</amp-iframe>
 </body>
 </html>
