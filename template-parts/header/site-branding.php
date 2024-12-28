@@ -34,7 +34,7 @@
                 <!-- JLA - PubGalaxy Top Banner -->
                 <?php 
                 if(function_exists('adrotate_group')) {
-                        echo '<div class="header-top">';
+                        echo '<div class="header-toop">';
                         if (!wp_is_mobile()) {
                	            echo adrotate_group(1);
                         } else {
