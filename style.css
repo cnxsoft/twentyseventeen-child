@@ -81,7 +81,7 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
 	div.custom-header {width: 100% !important;min-height: 280px !important;display: inline-block; margin-bottom: 0!important;}
 	p.site-description {font-size: 0.7em; text-align: left;}
 	.navigation-top nav {margin: auto 12%;}
-	div.header-tip {display: inline-block;}
+	div.header-top {display: inline-block;}
 }
 
 /* Mobile screen*/
@@ -102,7 +102,7 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
     body:not(.twentyseventeen-front-page) .entry-header {padding: 0.5em 0 0 0;}
     .entry-header .post-thumbnail {margin-bottom: 0;}
     .site-title {font-size: 3vh; font-size:14px;}
-    header#masthead div.header-tip {display: inline-block; width: 100%;}
+    header#masthead div.header-top {display: inline-block; width: 100%;}
 }
 
  
@@ -112,7 +112,7 @@ footer#entry-subFooter {border-bottom: 1px solid #eee;}
       .one-third-m {width: 27%;}
       .two-third-m {width: 72%;}
     .site-title {font-size: 1.76em;}
-    div.header-tip {margin: 1em 0}
+    div.header-top {margin: 1em 0}
 	.has-sidebar:not(.error404) #primary, .has-sidebar #secondary {width: 100%!important;}
 	.site-branding {margin-bottom: 50px!important;}
 	body:not(.twentyseventeen-front-page) .entry-header {display: block;}
