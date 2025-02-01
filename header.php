@@ -21,60 +21,68 @@
 
 <meta name="referrer" content="always"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel='preconnect' href='//cmp.uniconsent.com' />
 <link rel='preconnect' href='//static.addtoany.com' />
 
 <?php if ( function_exists( 'amp_is_request' ) && !amp_is_request() ) : ?>
 <!-- PubGalaxy IAB TCF 2.0 script Top -->
-<script src="https://cmp.uniconsent.com/v2/stub.min.js"></script>
-<script async src='https://cmp.uniconsent.com/v2/de538b0a3a/cmp.js'></script>
 <script>
-window.googletag = window.googletag || {};
-window.googletag.cmd = window.googletag.cmd || [];
-window.googletag.cmd.push(function () {
+  window.googletag = window.googletag || {};
+  window.googletag.cmd = window.googletag.cmd || [];
+  window.googletag.cmd.push(() => {
     window.googletag.pubads().enableAsyncRendering();
     window.googletag.pubads().disableInitialLoad();
-});
-(adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
-</script>
-<script>
-__tcfapi("addEventListener", 2, function(tcData, success) {
-    if (success && tcData.unicLoad  === true) {
-        if(!window._initAds) {
-            window._initAds = true;
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://dsh7ky7308k4b.cloudfront.net/publishers/cnx-softwarecom_new.min.js';
-            document.head.appendChild(script);
-
-/* Disable... using amz.to links instead 
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
-            document.head.appendChild(script); */
-	    
-	    /* Enable Adsense for now to fix CLS issue   */
-            if (wp_is_mobile()) {
-            	    var script = document.createElement('script');
-                    script.async = true;
-            	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
-                    script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-                    document.head.appendChild(script);
-            }
-
-	    var script = document.createElement('script');
-            script.async = true;
-            script.src = '//btloader.com/tag?h=pubgalaxy-com&upapi=true';
-            document.head.appendChild(script);
-
-/* Disable use fave.co links instead 
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://s.skimresources.com/js/38249X983277.skimlinks.js';
-            document.head.appendChild(script); */
+  }
+  );
+  const injectPgScript = (src, isAsync, onLoadCallback) => {
+    if (!src)
+      return;
+    const script = document.createElement("script");
+    script.src = src;
+    if (isAsync)
+      script.async = isAsync;
+    if (onLoadCallback)
+      script.onload = onLoadCallback;
+    document.head.appendChild(script);
+  };
+  
+  const initiatePgAds = () => {
+    !!window.__tcfapi && window.__tcfapi("addEventListener", 2, (tcData, success) => {
+      if (success && (tcData.eventStatus === "useractioncomplete" || tcData.eventStatus === "tcloaded" || tcData.gdprApplies === false)) {
+        if (!window._initAds) {
+          window._initAds = true;
+          injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
+          injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
+          injectPgScript("//btloader.com/tag?o=5184339635601408&upapi=true", true);
         }
+      }
     }
-});
+    );
+  };
+  
+  injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
+    window.googlefc = window.googlefc || {
+      callbackQueue: []
+    };
+
+    window.googlefc.callbackQueue.push({
+      "CONSENT_API_READY": () => initiatePgAds()
+    });
+    /* Disable... using amz.to links instead 
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
+    document.head.appendChild(script); */
+	    
+    /* Enable Adsense for now to fix CLS issue   */
+    if (wp_is_mobile()) {
+      	    var script = document.createElement('script');
+            script.async = true;
+       	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
+            script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+            document.head.appendChild(script);
+    }
+  }
+  );
 </script>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
 <?php endif; ?> 
