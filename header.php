@@ -23,7 +23,6 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel='preconnect' href='//static.addtoany.com' />
 
-<?php if ( function_exists( 'amp_is_request' ) && !amp_is_request() ) : ?>
 <!-- PubGalaxy IAB TCF 2.0 script Top -->
 <script>
   window.googletag = window.googletag || {};
@@ -85,7 +84,7 @@
   );
 </script>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
-<?php endif; ?> 
+
 <?php wp_head(); ?>
 <?php if ( function_exists( 'amp_is_request' ) && !amp_is_request() ) { ?>
 <!-- PubGalaxy IAB TCF 2.0 script bottom -->
