@@ -86,30 +86,6 @@
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
 
 <?php wp_head(); ?>
-<!-- PubGalaxy IAB TCF 2.0 script bottom -->
-<script>
-(function waitGEO() {
-    var readyGEO;
-    if (window['UnicI'] && window['UnicI'].geo && window['UnicI'].geo !== '-' ) {
-        readyGEO = true;
-        console.log(window['UnicI'].geo);
-        if (window['UnicI'].geo === 'EU') {
-            if(document.getElementById("unic-gdpr")) {
-              document.getElementById("unic-gdpr").style.display = 'block';
-            }
-        }
-        if (window['UnicI'].geo === 'CA') {
-            if(document.getElementById("unic-ccpa")) {
-              document.getElementById("unic-ccpa").style.display = 'block';
-            }
-        }
-    }
-    if (!readyGEO) {
-        setTimeout(waitGEO, 200);
-    }
-})();
-</script>
-<!-- PubGalaxy IAB TCF 2.0 script bottom End -->
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
 <link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
 <link id='wpdiscuz-preload-1' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2' as='font' type='font/woff2' crossorigin />
