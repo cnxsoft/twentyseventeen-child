@@ -85,6 +85,11 @@
 </script>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
 
+if (wp_is_mobile()) {
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3693704647095934"
+     crossorigin="anonymous"></script>
+}
+
 <?php wp_head(); ?>
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
 <link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
