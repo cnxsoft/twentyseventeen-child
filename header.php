@@ -85,10 +85,10 @@
 </script>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
 
-if (wp_is_mobile()) {
+<?php if (wp_is_mobile()) {
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3693704647095934"
      crossorigin="anonymous"></script>
-}
+}; ?>
 
 <?php wp_head(); ?>
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
