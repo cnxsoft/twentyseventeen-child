@@ -72,23 +72,17 @@
     script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
     document.head.appendChild(script); */
 	    
-    /* Enable Adsense for now to fix CLS issue   */
-    if (wp_is_mobile()) {
-      	    var script = document.createElement('script');
+    <?php if (wp_is_mobile()) { ?>
+           var script = document.createElement('script');
             script.async = true;
-       	    script.setAttribute('data-ad-client','ca-pub-3693704647095934');
+            script.setAttribute('data-ad-client','ca-pub-3693704647095934');
             script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
             document.head.appendChild(script);
-    }
+    <?php } ?>
   }
   );
 </script>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
-
-<?php if (wp_is_mobile()) { ?>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3693704647095934"
-     crossorigin="anonymous"></script>
-<?php }; ?>
 
 <?php wp_head(); ?>
 <!-- Preload wpdiscuz font for Lighthouse performance improvements -->
