@@ -49,19 +49,26 @@
       if (success && (tcData.eventStatus === "useractioncomplete" || tcData.eventStatus === "tcloaded" || tcData.gdprApplies === false)) {
         if (!window._initAds) {
           window._initAds = true;
+
+    <!-- Disable ads on mobile since we don't run any and as an experiment -->
+    <?php if (!wp_is_mobile()) { ?>
           injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
           injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
           injectPgScript("//btloader.com/tag?o=5184339635601408&upapi=true", true);
+    <?php } ?>
         }
       }
     }
     );
   };
   
+    <!-- Disable ads on mobile since we don't run any and as an experiment -->
+    <?php if (!wp_is_mobile()) { ?>
   injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
+    <?php } ?>
 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
