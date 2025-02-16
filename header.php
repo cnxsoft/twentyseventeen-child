@@ -68,12 +68,11 @@
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
-    <?php else {
-    window.googlefc = window.googlefc || {
-      callbackQueue: []
-    };
-
-    } ?>
+    <?php } else { ?>
+        window.googlefc = window.googlefc || {
+          callbackQueue: []
+        };
+    <?php } ?>
 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
