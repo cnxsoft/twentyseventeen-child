@@ -50,7 +50,7 @@
         if (!window._initAds) {
           window._initAds = true;
 
-    <!-- Disable ads on mobile since we don't run any and as an experiment -->
+    <!-- Disable ads on mobile since we do not run any and as an experiment -->
     <?php if (!wp_is_mobile()) { ?>
           injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
           injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
@@ -62,13 +62,18 @@
     );
   };
   
-    <!-- Disable ads on mobile since we don't run any and as an experiment -->
+    <!-- Disable ads on mobile since we do not run any and as an experiment -->
     <?php if (!wp_is_mobile()) { ?>
   injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
-    <?php } ?>
+    <?php else {
+    window.googlefc = window.googlefc || {
+      callbackQueue: []
+    };
+
+    } ?>
 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
