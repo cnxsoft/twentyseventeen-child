@@ -62,17 +62,10 @@
     );
   };
   
-    <!-- Disable ads on mobile since we do not run any and as an experiment -->
-    <?php if (!wp_is_mobile()) { ?>
   injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
-    <?php } else { ?>
-        window.googlefc = window.googlefc || {
-          callbackQueue: []
-        };
-    <?php } ?>
 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
