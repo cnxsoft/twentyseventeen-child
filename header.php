@@ -50,9 +50,9 @@
         if (!window._initAds) {
           window._initAds = true;
 
+          injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
     <!-- Disable ads on mobile since we do not run any and as an experiment -->
     <?php if (!wp_is_mobile()) { ?>
-          injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
           injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
           injectPgScript("//btloader.com/tag?o=5184339635601408&upapi=true", true);
     <?php } ?>
