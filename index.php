@@ -31,6 +31,24 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
+        <!-- JLA - PubGalaxy Top Banner -->
+        <?php
+        if(function_exists('adrotate_group')) {
+            if (!wp_is_mobile()) {
+                echo '<div class="header-highres">';
+                echo adrotate_group(1);
+            } else {
+                echo '<div class="header-top">';
+                if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
+                    echo adrotate_group(13);
+                } else {
+                    echo adrotate_group(11);
+                }
+            }
+            echo '</div>';
+        }
+    ?>
+
 		<main id="main" class="site-main" role="main">
 
 			<?php

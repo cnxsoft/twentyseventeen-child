@@ -31,23 +31,6 @@
                                 <p class="site-description"><?php echo $description; ?></p>
                         <?php endif; ?>
                 </div><!-- .site-branding-text -->
-                <!-- JLA - PubGalaxy Top Banner -->
-                <?php 
-                if(function_exists('adrotate_group')) {
-                        if (!wp_is_mobile()) {
-                            echo '<div class="header-highres">';
-               	            echo adrotate_group(1);
-                        } else {
-               	            echo '<div class="header-top">';
-		            if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) {
-               	                echo adrotate_group(13);
-		            } else {
-                                echo adrotate_group(11);
-			    }
-                        }
-                        echo '</div>';
-                }
-                ?>
                 <?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
                 <a href="#content" class="menu-scroll-down"><?php echo twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'twentyseventeen' ); ?></span></a>
         <?php endif; ?>
