@@ -225,3 +225,31 @@ a.sidebar-social, a.sidebar-social:hover {
 .fixedmbar-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 12px 0 0; position: absolute; right: 0; top: -30px; background-color: #fefefe; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.08); }
 .fixedmbar .fixeddbar-close svg { width: 22px; height: 22px; fill: #000; }
 .fixedmbar .fixeddbar-content { overflow: hidden; display: block; position: relative; height: 60px; width: 100%; margin-right: 5px; margin-left: 5px; }
+
+/* Ensure content and sidebar float side by side */
+@media screen and (min-width: 48em) { /* Matches Twenty Seventeen's desktop breakpoint */
+    .page .content-area {
+        float: left;
+        width: 66%;
+        margin-right: 2%;
+    }
+    .page .widget-area {
+        float: right;
+        width: 30%;
+    }
+}
+
+/* Clear floats after the wrap to prevent layout issues */
+.wrap {
+    overflow: hidden; /* Contains floated children */
+}
+
+/* Stack them on smaller screens */
+@media screen and (max-width: 48em) {
+    .page .content-area,
+    .page .widget-area {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+}
