@@ -77,7 +77,6 @@
     <?php if (!wp_is_mobile()) { ?>
           injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
           injectPgScript("//btloader.com/tag?o=5184339635601408&upapi=true", true);
-    <?php } ?>
         }
       }
     }
@@ -109,6 +108,7 @@
   }
   );
 </script>
+<?php } ?>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
 
 <?php wp_head(); ?>
