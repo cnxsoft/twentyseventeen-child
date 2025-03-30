@@ -24,6 +24,28 @@
 <link rel='preconnect' href='//static.addtoany.com' />
 
 <!-- PubGalaxy IAB TCF 2.0 script Top -->
+<?php if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) { ?>
+<script>
+(function() {
+    if(!window['gtag']) {
+        window['dataLayer'] = window['dataLayer'] || [];
+        window['gtag'] = function(){window['dataLayer'].push(arguments);}
+    }
+    window['gtag']('consent', 'default', {
+        ad_storage: 'denied',
+        functionality_storage: 'granted',
+        personalization_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 1000
+    });
+    window['gtag']("set", "ads_data_redaction", true);
+    window['gtag']("set", "url_passthrough", false);
+})();
+</script>
+<?php } else { ?>
 <script>
   window.googletag = window.googletag || {};
   window.googletag.cmd = window.googletag.cmd || [];
@@ -75,6 +97,7 @@
     script.async = true;
     script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
     document.head.appendChild(script); */
+  <?php } ?>
 	    
     <?php if (wp_is_mobile()) { ?>
            var script = document.createElement('script');
@@ -93,6 +116,11 @@
 <link id='wpdiscuz-preload-0' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-brands-400.woff2' as='font' type='font/woff2' crossorigin />
 <link id='wpdiscuz-preload-1' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-solid-900.woff2' as='font' type='font/woff2' crossorigin />
 <link id='wpdiscuz-preload-2' rel='preload' href='https://www.cnx-software.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-regular-400.woff2' as='font' type='font/woff2' crossorigin />
+
+<?php if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) { ?>
+	<meta name="amp-consent-blocking" content="amp-ad"><script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <?php } ?>
+
 </head>
 
 <body <?php body_class(); ?>>
