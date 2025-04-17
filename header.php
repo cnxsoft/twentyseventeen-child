@@ -78,6 +78,7 @@
         }
       }
     }
+   );
   };
   
   injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
@@ -93,7 +94,6 @@
     script.async = true;
     script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
     document.head.appendChild(script); */
-  <?php } ?>
 	    
     <?php if (wp_is_mobile()) { ?>
            var script = document.createElement('script');
