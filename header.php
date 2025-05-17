@@ -85,10 +85,12 @@
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
-
+   /* Disable for now 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
-    });
+    }); */
+    initiatePgAds();
+
     /* Disable... using amz.to links instead 
     var script = document.createElement('script');
     script.async = true;
