@@ -64,39 +64,29 @@
     if (onLoadCallback)
       script.onload = onLoadCallback;
     document.head.appendChild(script);
-  };
-  
+  }
+    ;
   const initiatePgAds = () => {
     !!window.__tcfapi && window.__tcfapi("addEventListener", 2, (tcData, success) => {
       if (success && (tcData.eventStatus === "useractioncomplete" || tcData.eventStatus === "tcloaded" || tcData.gdprApplies === false)) {
         if (!window._initAds) {
           window._initAds = true;
-
           injectPgScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", true);
-          injectPgScript("///fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true);
+          injectPgScript("https://fms.360yield.com/ow/bundles/live/pubgalaxy/publishers/cnx-softwarecom_new.min.js", true); 
           injectPgScript("//btloader.com/tag?o=5184339635601408&upapi=true", true);
         }
       }
     }
-   );
-  };
-  
-  injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => {
+    );
+  } 
+    ;
+  injectPgScript("https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8095840", true, () => { 
     window.googlefc = window.googlefc || {
       callbackQueue: []
     };
-   /* Disable for now 
     window.googlefc.callbackQueue.push({
       "CONSENT_API_READY": () => initiatePgAds()
-    }); */
-    initiatePgAds();
-
-    /* Disable... using amz.to links instead 
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = '//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=593731f3-2419-45b0-9d08-5e745f36e047';
-    document.head.appendChild(script); */
-	    
+    });
     <?php if (wp_is_mobile()) { ?>
            var script = document.createElement('script');
             script.async = true;
@@ -106,6 +96,49 @@
     <?php } ?>
   }
   );
+</script>
+<!-- Change the ad setting link. We usually recomend putting them in the footer of your website -->
+<!-- Change Consent Option FundingChoices -->
+<div id="fluid-privacy-opt-out-link" onmouseover="this.style.color='rgb(25, 103, 210)'; this.style.cursor='pointer'"
+  onmouseout="this.style.color='#CCCCCC'; this.style.cursor='auto'"></div>
+<script>
+   const privacyOptOutLink = document.getElementById("fluid-privacy-opt-out-link");
+window.googlefc = window.googlefc || { callbackQueue: [] };
+window.googlefc.ccpa = window.googlefc.ccpa || {};
+window.googlefc.ccpa.overrideDnsLink = true;
+window.googlefc.callbackQueue.push(
+  {
+    "CONSENT_API_READY": () => {
+      if (!privacyOptOutLink) {
+        return;
+      }
+      !!window.__tcfapi && window.__tcfapi("addEventListener", 2, (tcData, success) => {
+        if (success && tcData.gdprApplies) {
+          privacyOptOutLink.innerText = "Change GDPR Consent";
+          privacyOptOutLink.addEventListener("click", () => googlefc.showRevocationMessage());
+          return;
+        }
+      });
+    }
+  });
+window.googlefc.callbackQueue.push(
+  {
+    "INITIAL_CCPA_DATA_READY": () => {
+      if (!privacyOptOutLink) {
+        return;
+      }
+
+      if (googlefc.ccpa.getInitialCcpaStatus() && googlefc.ccpa.getInitialCcpaStatus() === googlefc.ccpa.InitialCcpaStatusEnum.NOT_OPTED_OUT) {
+        privacyOptOutLink.innerText = "Don't sell or share my personal info";
+        privacyOptOutLink.addEventListener("click", () => googlefc.ccpa.openConfirmationDialog((optedOut) => {
+          if (optedOut) {
+            privacyOptOutLink.style.display = "none";
+          }
+        }));
+        return
+      }
+    }
+  });
 </script>
 <?php } ?>
 <!-- PubGalaxy IAB TCF 2.0 script top end -->
