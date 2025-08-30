@@ -252,5 +252,34 @@ function max_entries_per_sitemap() {
 }
 add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
 
-/* Test visuals free experience ;) */
+/*  Add Author Tracking */
+function output_author_for_ga() {
+    if (is_single() || is_page()) {
+        global $post;
+        $author_name = get_the_author_meta('display_name', $post->post_author);
+        if (!empty($author_name)) {
+            echo '<script>var wpAuthorName = "' . esc_js($author_name) . '";</script>' . "\n";
+        }
+    }
+}
+add_action('wp_head', 'output_author_for_ga');
+
+function push_author_to_ga() {
+    if (is_single() || is_page()) {
+        ?>
+        <script>
+        // Wait for gtag to load, then push author on page view
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof gtag !== 'undefined' && typeof wpAuthorName !== 'undefined') {
+                gtag('set', 'author_name', wpAuthorName);  // Set the custom parameter
+                gtag('event', 'page_view', {  // Trigger or enhance the page_view event
+                    'author_name': wpAuthorName
+                });
+            }
+        });
+        </script>
+        <?php
+    }
+}
+add_action('wp_head', 'push_author_to_ga');
 ?>
