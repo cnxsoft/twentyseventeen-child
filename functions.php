@@ -286,38 +286,13 @@ add_action('wp_head', function() {
     }
 });
 
-// For AMP pages: Inject custom amp-analytics tag
-add_filter('amp_post_template_data', function($data) {
-    error_log('amp_post_template_data filter triggered');
-    if (strpos($_SERVER['REQUEST_URI'], '/amp/') !== false) {
-        error_log('AMP context via URI');
-        $author_name = get_wp_author_name();
-        error_log('Author name for AMP: ' . $author_name);
-        if (!empty($author_name)) {
-            $measurement_id = 'G-JYD50CFMB4'; // Match your ID
-            $data['amp_analytics'] = [
-                'type' => 'gtag',
-                'attributes' => ['data-credentials' => 'include'],
-                'config' => [
-                    'vars' => [
-                        'gtag_id' => $measurement_id,
-                        'config' => [
-                            $measurement_id => [
-                                'page_view' => ['author_name' => $author_name]
-                            ]
-                        ]
-                    ],
-                    'triggers' => [
-                        'trackPageview' => [
-                            'on' => 'visible',
-                            'request' => 'pageview'
-                        ]
-                    ]
-                ]
-            ];
-            error_log('amp_analytics data added: ' . print_r($data['amp_analytics'], true));
-        }
+// For AMP pages: Use Site Kit's AMP gtag filter to add author_name
+add_filter('googlesitekit_amp_gtag_opt', function($options) {
+    $author_name = get_wp_author_name();
+    if (!empty($author_name)) {
+        $options['author_name'] = $author_name; // Add as a global parameter
+        return $options;
     }
-    return $data;
+    return $options;
 });
 ?>
