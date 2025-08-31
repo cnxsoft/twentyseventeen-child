@@ -289,9 +289,12 @@ add_action('wp_head', function() {
 // For AMP pages: Inject custom amp-analytics tag
 add_action('amp_post_template_head', function() {
     if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+        error_log('amp_post_template_head action triggered for AMP endpoint');
         $author_name = get_wp_author_name();
+        error_log('Author name for AMP: ' . $author_name);
         if (!empty($author_name)) {
-            $measurement_id = 'G-JYD50CFMB4'; // Replace with your actual Measurement ID from Site Kit
+            $measurement_id = 'G-JYD50CFMB4'; // Ensure this matches your Site Kit Measurement ID
+            error_log('Injecting amp-analytics with author_name: ' . $author_name);
             ?>
             <amp-analytics type="gtag" data-credentials="include">
                 <script type="application/json">
@@ -316,7 +319,11 @@ add_action('amp_post_template_head', function() {
                 </script>
             </amp-analytics>
             <?php
+        } else {
+            error_log('No author name found for AMP');
         }
+    } else {
+        error_log('Not an AMP endpoint or is_amp_endpoint not available');
     }
 });
 ?>
