@@ -286,16 +286,37 @@ add_action('wp_head', function() {
     }
 });
 
-// For AMP pages: Configure amp-analytics via Site Kit's AMP integration
-add_filter('googlesitekit_amp_analytics_config', function($config) {
-    $author_name = get_wp_author_name();
-    if (!empty($author_name) && is_amp_endpoint()) {
-        $measurement_id = 'G-JYD50CFMB4'; // Replace with your actual Measurement ID from Site Kit
-        if (!isset($config['vars']['config'][$measurement_id]['page_view'])) {
-            $config['vars']['config'][$measurement_id]['page_view'] = [];
+// For AMP pages: Inject custom amp-analytics tag
+add_action('amp_post_template_head', function() {
+    if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+        $author_name = get_wp_author_name();
+        if (!empty($author_name)) {
+            $measurement_id = 'G-JYD50CFMB4'; // Replace with your actual Measurement ID from Site Kit
+            ?>
+            <amp-analytics type="gtag" data-credentials="include">
+                <script type="application/json">
+                {
+                    "vars": {
+                        "gtag_id": "<?php echo esc_js($measurement_id); ?>",
+                        "config": {
+                            "<?php echo esc_js($measurement_id); ?>": {
+                                "page_view": {
+                                    "author_name": "<?php echo esc_js($author_name); ?>"
+                                }
+                            }
+                        }
+                    },
+                    "triggers": {
+                        "trackPageview": {
+                            "on": "visible",
+                            "request": "pageview"
+                        }
+                    }
+                }
+                </script>
+            </amp-analytics>
+            <?php
         }
-        $config['vars']['config'][$measurement_id]['page_view']['author_name'] = $author_name;
     }
-    return $config;
 });
 ?>
