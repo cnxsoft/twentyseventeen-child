@@ -253,33 +253,52 @@ function max_entries_per_sitemap() {
 add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
 
 /*  Add Author Tracking */
-function output_author_for_ga() {
+function add_author_name_to_ga4($args) {
+    // Only proceed if GA4 is active and we can get an author name
+    if (!function_exists('googlesitekit_is_ga4_active') || !googlesitekit_is_ga4_active()) {
+        return $args;
+    }
+
+    $author_name = '';
     if (is_single() || is_page()) {
         global $post;
         $author_name = get_the_author_meta('display_name', $post->post_author);
-        if (!empty($author_name)) {
-            echo '<script>var wpAuthorName = "' . esc_js($author_name) . '";</script>' . "\n";
+    } elseif (is_author()) {
+        $author_name = get_queried_object()->display_name; // For author archives
+    }
+
+    if (!empty($author_name)) {
+        // For standard pages (gtag.js)
+        if (!is_amp_endpoint()) {
+            add_action('wp_head', function() use ($author_name) {
+                ?>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('set', 'author_name', '<?php echo esc_js($author_name); ?>');
+                        gtag('event', 'page_view', {
+                            'author_name': '<?php echo esc_js($author_name); ?>'
+                        });
+                    }
+                });
+                </script>
+                <?php
+            });
+        }
+
+        // For AMP pages (amp-analytics via Site Kit)
+        if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+            add_filter('googlesitekit_amp_analytics_config', function($config) use ($author_name) {
+                if (!isset($config['vars']['config']['G-JYD50CFMB4']['page_view'])) {
+                    $config['vars']['config']['G-JYD50CFMB4']['page_view'] = [];
+                }
+                $config['vars']['config']['G-JYD50CFMB4']['page_view']['author_name'] = $author_name;
+                return $config;
+            });
         }
     }
-}
-add_action('wp_head', 'output_author_for_ga');
 
-function push_author_to_ga() {
-    if (is_single() || is_page()) {
-        ?>
-        <script>
-        // Wait for gtag to load, then push author on page view
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof gtag !== 'undefined' && typeof wpAuthorName !== 'undefined') {
-                gtag('set', 'author_name', wpAuthorName);  // Set the custom parameter
-                gtag('event', 'page_view', {  // Trigger or enhance the page_view event
-                    'author_name': wpAuthorName
-                });
-            }
-        });
-        </script>
-        <?php
-    }
+    return $args;
 }
-add_action('wp_head', 'push_author_to_ga');
+add_filter('googlesitekit_tracking_allowed', 'add_author_name_to_ga4');
 ?>
