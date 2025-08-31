@@ -253,64 +253,49 @@ function max_entries_per_sitemap() {
 add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
 
 /*  Add Author Tracking */
-function add_author_name_to_ga4($args) {
-    // Debug: Log if the function is called
-    error_log('add_author_name_to_ga4 called');
-
-    if (!function_exists('googlesitekit_is_ga4_active') || !googlesitekit_is_ga4_active()) {
-        error_log('GA4 not active or function not found');
-        return $args;
-    }
-
+// Determine author name (reusable function)
+function get_wp_author_name() {
     $author_name = '';
     if (is_single() || is_page()) {
         global $post;
         $author_name = get_the_author_meta('display_name', $post->post_author);
     } elseif (is_author()) {
-        $author_name = get_queried_object()->display_name;
+        $author_name = get_queried_object()->display_name; // For author archives
     }
+    return !empty($author_name) ? $author_name : '';
+}
 
-    error_log('Author name determined: ' . $author_name);
-
-    if (!empty($author_name)) {
-        if (!is_amp_endpoint()) {
-            error_log('Adding gtag for standard page');
-            add_action('wp_head', function() use ($author_name) {
-                ?>
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    if (typeof gtag !== 'undefined') {
-                        gtag('set', 'author_name', '<?php echo esc_js($author_name); ?>');
-                        gtag('event', 'page_view', {
-                            'author_name': '<?php echo esc_js($author_name); ?>'
-                        });
-                    }
-                });
-                </script>
-                <?php
-            });
-        } else {
-            error_log('AMP page detected, adding to config');
-            add_filter('googlesitekit_amp_analytics_config', function($config) use ($author_name) {
-                if (!isset($config['vars']['config']['G-JYD50CFMB4']['page_view'])) {
-                    $config['vars']['config']['G-JYD50CFMB4']['page_view'] = [];
+// For standard pages: Inject gtag call directly
+add_action('wp_head', function() {
+    if (!is_amp_endpoint()) { // Avoid AMP pages
+        $author_name = get_wp_author_name();
+        if (!empty($author_name)) {
+            ?>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('set', 'author_name', '<?php echo esc_js($author_name); ?>');
+                    gtag('event', 'page_view', {
+                        'author_name': '<?php echo esc_js($author_name); ?>'
+                    });
                 }
-                $config['vars']['config']['G-JYD50CFMB4']['page_view']['author_name'] = $author_name;
-                return $config;
             });
+            </script>
+            <?php
         }
-    } else {
-        error_log('No author name found');
     }
+});
 
-    return $args;
-}
-add_filter('googlesitekit_tracking_allowed', 'add_author_name_to_ga4');
-
-// Enable debugging if not already enabled
-if (!defined('WP_DEBUG') || !WP_DEBUG) {
-    define('WP_DEBUG', true);
-    define('WP_DEBUG_LOG', true); // Logs to wp-content/debug.log
-    define('WP_DEBUG_DISPLAY', false); // Avoid displaying errors on front-end
-}
+// For AMP pages: Configure amp-analytics via Site Kit's AMP integration
+add_filter('googlesitekit_amp_analytics_config', function($config) {
+    $author_name = get_wp_author_name();
+    if (!empty($author_name) && is_amp_endpoint()) {
+        $measurement_id = 'G-JYD50CFMB4'; // Replace with your actual Measurement ID from Site Kit
+        if (!isset($config['vars']['config'][$measurement_id]['page_view'])) {
+            $config['vars']['config'][$measurement_id]['page_view'] = [];
+        }
+        $config['vars']['config'][$measurement_id]['page_view']['author_name'] = $author_name;
+    }
+    return $config;
+});
 ?>
