@@ -287,43 +287,37 @@ add_action('wp_head', function() {
 });
 
 // For AMP pages: Inject custom amp-analytics tag
-add_action('amp_post_template_head', function() {
-    if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
-        error_log('amp_post_template_head action triggered for AMP endpoint');
+add_filter('amp_post_template_data', function($data) {
+    error_log('amp_post_template_data filter triggered');
+    if (strpos($_SERVER['REQUEST_URI'], '/amp/') !== false) {
+        error_log('AMP context via URI');
         $author_name = get_wp_author_name();
         error_log('Author name for AMP: ' . $author_name);
         if (!empty($author_name)) {
-            $measurement_id = 'G-JYD50CFMB4'; // Ensure this matches your Site Kit Measurement ID
-            error_log('Injecting amp-analytics with author_name: ' . $author_name);
-            ?>
-            <amp-analytics type="gtag" data-credentials="include">
-                <script type="application/json">
-                {
-                    "vars": {
-                        "gtag_id": "<?php echo esc_js($measurement_id); ?>",
-                        "config": {
-                            "<?php echo esc_js($measurement_id); ?>": {
-                                "page_view": {
-                                    "author_name": "<?php echo esc_js($author_name); ?>"
-                                }
-                            }
-                        }
-                    },
-                    "triggers": {
-                        "trackPageview": {
-                            "on": "visible",
-                            "request": "pageview"
-                        }
-                    }
-                }
-                </script>
-            </amp-analytics>
-            <?php
-        } else {
-            error_log('No author name found for AMP');
+            $measurement_id = 'G-JYD50CFMB4'; // Match your ID
+            $data['amp_analytics'] = [
+                'type' => 'gtag',
+                'attributes' => ['data-credentials' => 'include'],
+                'config' => [
+                    'vars' => [
+                        'gtag_id' => $measurement_id,
+                        'config' => [
+                            $measurement_id => [
+                                'page_view' => ['author_name' => $author_name]
+                            ]
+                        ]
+                    ],
+                    'triggers' => [
+                        'trackPageview' => [
+                            'on' => 'visible',
+                            'request' => 'pageview'
+                        ]
+                    ]
+                ]
+            ];
+            error_log('amp_analytics data added: ' . print_r($data['amp_analytics'], true));
         }
-    } else {
-        error_log('Not an AMP endpoint or is_amp_endpoint not available');
     }
+    return $data;
 });
 ?>
