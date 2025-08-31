@@ -254,8 +254,11 @@ add_filter( 'wpseo_sitemap_entries_per_page', 'max_entries_per_sitemap' );
 
 /*  Add Author Tracking */
 function add_author_name_to_ga4($args) {
-    // Only proceed if GA4 is active and we can get an author name
+    // Debug: Log if the function is called
+    error_log('add_author_name_to_ga4 called');
+
     if (!function_exists('googlesitekit_is_ga4_active') || !googlesitekit_is_ga4_active()) {
+        error_log('GA4 not active or function not found');
         return $args;
     }
 
@@ -264,12 +267,14 @@ function add_author_name_to_ga4($args) {
         global $post;
         $author_name = get_the_author_meta('display_name', $post->post_author);
     } elseif (is_author()) {
-        $author_name = get_queried_object()->display_name; // For author archives
+        $author_name = get_queried_object()->display_name;
     }
 
+    error_log('Author name determined: ' . $author_name);
+
     if (!empty($author_name)) {
-        // For standard pages (gtag.js)
         if (!is_amp_endpoint()) {
+            error_log('Adding gtag for standard page');
             add_action('wp_head', function() use ($author_name) {
                 ?>
                 <script>
@@ -284,10 +289,8 @@ function add_author_name_to_ga4($args) {
                 </script>
                 <?php
             });
-        }
-
-        // For AMP pages (amp-analytics via Site Kit)
-        if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+        } else {
+            error_log('AMP page detected, adding to config');
             add_filter('googlesitekit_amp_analytics_config', function($config) use ($author_name) {
                 if (!isset($config['vars']['config']['G-JYD50CFMB4']['page_view'])) {
                     $config['vars']['config']['G-JYD50CFMB4']['page_view'] = [];
@@ -296,9 +299,18 @@ function add_author_name_to_ga4($args) {
                 return $config;
             });
         }
+    } else {
+        error_log('No author name found');
     }
 
     return $args;
 }
 add_filter('googlesitekit_tracking_allowed', 'add_author_name_to_ga4');
+
+// Enable debugging if not already enabled
+if (!defined('WP_DEBUG') || !WP_DEBUG) {
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true); // Logs to wp-content/debug.log
+    define('WP_DEBUG_DISPLAY', false); // Avoid displaying errors on front-end
+}
 ?>
