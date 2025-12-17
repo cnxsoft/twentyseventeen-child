@@ -225,3 +225,15 @@ a.sidebar-social, a.sidebar-social:hover {
 .fixedmbar-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 12px 0 0; position: absolute; right: 0; top: -30px; background-color: #fefefe; box-shadow: 0 -6px 18px 0 rgba(9,32,76,.08); }
 .fixedmbar .fixeddbar-close svg { width: 22px; height: 22px; fill: #000; }
 .fixedmbar .fixeddbar-content { overflow: hidden; display: block; position: relative; height: 60px; width: 100%; margin-right: 5px; margin-left: 5px; }
+
+/* Hide the down arrow SVG icon in menu parent items to fix the Waveshare menu going to the second line */
+.main-navigation .menu-item-has-children > a .icon-angle-down,
+.main-navigation .page_item_has_children > a .icon-angle-down {
+    display: none !important;
+}
+
+/* Related to fix above: Remove extra right padding/space the theme adds to accommodate the arrow */
+.main-navigation .menu-item-has-children > a,
+.main-navigation .page_item_has_children > a {
+    padding-right: 0 !important; /* Adjust if needed; original theme has some right padding */
+}
