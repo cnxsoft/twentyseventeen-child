@@ -51,11 +51,11 @@ get_header(); ?>
 			  	    	        switch ($countpost){
 			  	      	       	case 1: 
 							echo adrotate_group(8);
-							echo '<hr class="ad-separator" style="margin: 30px 0 40px; border: none; border-top: 1px solid #ddd; width: 100%;">';
+							echo '<hr class="ad-separator" style="margin: 10px 0 5px; border: none; border-top: 1px solid #e6e6e5; width: 100%;">';
 						        break;
 		              			case 5: 
 							echo adrotate_group(9);
-							echo '<hr class="ad-separator" style="margin: 30px 0 40px; border: none; border-top: 1px solid #ddd; width: 100%;">';
+							echo '<hr class="ad-separator" style="margin: 10px 0 5px; border: none; border-top: 1px solid #e6e6e5; width: 100%;">';
 		                 			break;
 					        default:
 					        }
