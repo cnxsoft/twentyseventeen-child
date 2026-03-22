@@ -49,11 +49,15 @@ get_header(); ?>
 					if (!wp_is_mobile() && function_exists('adrotate_group')) {
 			  	            	STATIC $countpost = 0; /* JLA */
 			  	    	        switch ($countpost){
-			  	      	       	case 1: echo adrotate_group(8);
+			  	      	       	case 1: 
+							echo adrotate_group(8);
+							echo '<hr class="ad-separator" style="margin: 30px 0 40px; border: none; border-top: 1px solid #ddd; width: 100%;">';
 						        break;
-		              				case 5: echo adrotate_group(9);
+		              			case 5: 
+							echo adrotate_group(9);
+							echo '<hr class="ad-separator" style="margin: 30px 0 40px; border: none; border-top: 1px solid #ddd; width: 100%;">';
 		                 			break;
-					                default:
+					        default:
 					        }
 				                $countpost++;
 					}
