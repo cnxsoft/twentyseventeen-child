@@ -40,8 +40,12 @@ get_header(); ?>
                                 STATIC $countpost = 0; /* JLA */
                                 switch ($countpost){
                                     case 1: echo adrotate_group(8);
+				            echo '<hr class="group-separator">';
+
                                     break;
                                     case 5: echo adrotate_group(9);
+					    echo '<hr class="group-separator">';
+
                                     break;
                                     default:
                                 }
