@@ -156,6 +156,18 @@ window.googlefc.callbackQueue.push(
 </head>
 
 <body <?php body_class(); ?>>
+<?php if ( function_exists( 'amp_is_request' ) &&  amp_is_request() ) { ?>
+    <amp-consent id="googlefc" layout="nodisplay" type="googlefc">
+    <script type="application/json">
+    {
+        "clientConfig": {
+          "publisherIdentifier": "pub-5916433635784354"
+        }
+    }
+    </script>
+    </amp-consent>
+<?php } ?>
+
 <?php wp_body_open(); ?>
 <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
