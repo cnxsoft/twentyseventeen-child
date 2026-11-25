@@ -295,4 +295,30 @@ add_filter('googlesitekit_amp_gtag_opt', function($options) {
     }
     return $options;
 });
+
+// Admins, contributors, authors must login before commenting. This is used to prevent spam comments from impersonators
+add_filter('preprocess_comment', function ($commentdata) {
+    // Roles that must be logged in to comment under their email
+    $protected_roles = ['administrator', 'editor', 'author', 'contributor'];
+
+    if (is_user_logged_in()) {
+        return $commentdata;
+    }
+
+    $email = trim($commentdata['comment_author_email']);
+    if ($email === '') {
+        return $commentdata;
+    }
+
+    $user = get_user_by('email', $email);
+    if ($user && array_intersect($protected_roles, (array) $user->roles)) {
+        wp_die(
+            'This email address belongs to a site team member. Please <a href="' . esc_url(wp_login_url(get_permalink($commentdata['comment_post_ID']))) . '">log in</a> to comment, or use a different email address.',
+            'Login required',
+            ['response' => 403, 'back_link' => true]
+        );
+    }
+
+    return $commentdata;
+});
 ?>
