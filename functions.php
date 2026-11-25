@@ -297,28 +297,33 @@ add_filter('googlesitekit_amp_gtag_opt', function($options) {
 });
 
 // Admins, contributors, authors must login before commenting. This is used to prevent spam comments from impersonators
-add_filter('preprocess_comment', function ($commentdata) {
-    // Roles that must be logged in to comment under their email
+function cnx_protected_email_check($email) {
     $protected_roles = ['administrator', 'editor', 'author', 'contributor'];
-
-    if (is_user_logged_in()) {
-        return $commentdata;
+    $email = trim($email);
+    if (is_user_logged_in() || $email === '') {
+        return false;
     }
-
-    $email = trim($commentdata['comment_author_email']);
-    if ($email === '') {
-        return $commentdata;
-    }
-
     $user = get_user_by('email', $email);
-    if ($user && array_intersect($protected_roles, (array) $user->roles)) {
+    return $user && array_intersect($protected_roles, (array) $user->roles);
+}
+
+// wpDiscuz (AJAX) - return a JSON error the JS can display
+add_action('wpdiscuz_before_comment_post', function () {
+    $email = isset($_POST['wc_email']) ? sanitize_email(wp_unslash($_POST['wc_email'])) : '';
+    if (cnx_protected_email_check($email)) {
+        wp_send_json_error('This email address belongs to a site team member. Please log in to comment, or use a different email address.');
+    }
+});
+
+// Standard WordPress comment form (non-AJAX)
+add_filter('preprocess_comment', function ($commentdata) {
+    if (cnx_protected_email_check($commentdata['comment_author_email'])) {
         wp_die(
             'This email address belongs to a site team member. Please <a href="' . esc_url(wp_login_url(get_permalink($commentdata['comment_post_ID']))) . '">log in</a> to comment, or use a different email address.',
             'Login required',
             ['response' => 403, 'back_link' => true]
         );
     }
-
     return $commentdata;
 });
 ?>
